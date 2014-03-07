@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>biesti.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ app.request.baseUrl }}/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ app.request.baseUrl }}/assets/css/app.css"/>
+
+    <!-- FONTS -->
+    <script src="//use.edgefonts.net/abel:n4:all.js"></script>
+</head>
+<body>
+
+{% block app %}{% endblock %}
+
+<!-- JS -->
+<script src="{{ app.request.baseUrl }}/assets/js/lib/jquery-1.11.0.min.js"></script>
+<script src="{{ app.request.baseUrl }}/assets/js/lib/bootstrap.min.js"></script>
+<script src="{{ app.request.baseUrl }}/assets/js/app.js"></script>
+
+</body>
+</html>
