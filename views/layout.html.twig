@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>biesti.com</title>
+    <title>{% block title %}Florian Weber | biesti.com{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -17,6 +17,8 @@
     <script src="//use.edgefonts.net/pt-sans-narrow:n4,n7:all.js"></script>
 </head>
 <body>
+
+<span class="hidden" id="current-page">{% block currentPage %}{% endblock %}</span>
 
 <nav class="navbar navbar-default navbar-static-top visible-xs" role="navigation">
     <div class="container-fluid">
@@ -35,12 +37,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Kontakt</a></li>
+                <li class="nav-link" id="nbl-portfolio"><a href="{{ app.request.baseUrl }}/portfolio">Portfolio</a></li>
+                <li class="nav-link" id="nbl-kontakt"><a href="{{ app.request.baseUrl }}/kontakt">Kontakt</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Impressum</a></li>
+                <li class="nav-link" id="nbl-impressum"><a href="{{ app.request.baseUrl }}/impressum">Impressum</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -56,14 +58,14 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 bottom-line">
                         <div class="logo pt-sans-narrow-font">
-                            Florian Weber
+                            <a href="{{ app.request.baseUrl }}">Florian Weber</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 bottom-line navigation">
                         <ul class="navigator pull-right">
-                            <li class="active"><a href="#">Portfolio</a></li>
-                            <li><a href="#">Kontakt</a></li>
-                            <li><a href="#">Impressum</a></li>
+                            <li class="nav-link" id="nl-portfolio"><a href="{{ app.request.baseUrl }}/portfolio">Portfolio</a></li>
+                            <li class="nav-link" id="nl-kontakt"><a href="{{ app.request.baseUrl }}/kontakt">Kontakt</a></li>
+                            <li class="nav-link" id="nl-impressum"><a href="{{ app.request.baseUrl }}/impressum">Impressum</a></li>
                         </ul>
                     </div>
                 </div>
