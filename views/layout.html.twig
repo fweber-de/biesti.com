@@ -7,8 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	<!-- OGP -->
+	<meta property="og:url" content="{{ app.request.getUri() }}" />
 	<meta property="og:title" content="{% block ogpTitle %}Florian Weber | biesti.com{% endblock %}" />
 	<meta property="og:image" content="{% block ogpImage %}{{ url('root') }}assets/img/pi-1.jpg{% endblock %}" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:image:width" content="440" />
+	<meta property="og:image:height" content="440" />
 	<meta property="og:description" content="Tech-Enthusiast, Programmer, Web-Developer, Musician and Hobby-Chef" />
 	<!--------->
 
@@ -45,7 +49,7 @@
         ga('send', 'pageview');
     </script>
     <!------------->
-
+	
     <nav class="navbar navbar-default navbar-static-top visible-xs" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
