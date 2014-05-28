@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <!-- JS -->
+    <script src="{{ app.request.baseUrl }}/assets/js/lib/jquery-1.11.0.min.js"></script>
+    <script src="{{ app.request.baseUrl }}/assets/js/lib/bootstrap.min.js"></script>
+    <script src="{{ app.request.baseUrl }}/assets/js/app.js"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="{{ app.request.baseUrl }}/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{ app.request.baseUrl }}/assets/css/docs.min.css"/>
@@ -19,9 +24,13 @@
 </head>
 <body>
 
-<span class="hidden" id="current-page">{% block currentPage %}{% endblock %}</span>
-
 <div id="wrap">
+
+    <span class="hidden" id="current-page">{% block currentPage %}{% endblock %}</span>
+
+    <!-- GOOGLE-ANALYTICS -->
+    <!------------->
+
     <nav class="navbar navbar-default navbar-static-top visible-xs" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -89,11 +98,6 @@
         </div>
     </div>
 </div>
-
-<!-- JS -->
-<script src="{{ app.request.baseUrl }}/assets/js/lib/jquery-1.11.0.min.js"></script>
-<script src="{{ app.request.baseUrl }}/assets/js/lib/bootstrap.min.js"></script>
-<script src="{{ app.request.baseUrl }}/assets/js/app.js"></script>
 
 </body>
 </html>
