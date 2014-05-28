@@ -5,6 +5,12 @@
     <title>{% block title %}Florian Weber | biesti.com{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<!-- OGP -->
+	<meta property="og:title" content="{% block title %}Florian Weber | biesti.com{% endblock %}" />
+	<meta property="og:image" content="{% block ogpImage %}{{ app.request.baseUrl }}/assets/img/pi-1.jpg{% endblock %}" />
+	<meta property="og:description" content="Tech-Enthusiast, Programmer, Web-Developer, Musician and Hobby-Chef" />
+	<!--------->
 
     <!-- JS -->
     <script src="{{ app.request.baseUrl }}/assets/js/lib/jquery-1.11.0.min.js"></script>
