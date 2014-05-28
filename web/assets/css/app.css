@@ -3,9 +3,6 @@
  * © 2014 Florian Weber
  */
 
-body {
-}
-
 .head {
     padding-top: 10px;
 }
@@ -27,6 +24,7 @@ body {
 
 .content {
     padding-top: 30px;
+    font-family: pt-sans-narrow, sans-serif;
 }
 
 .portfolio-title {
@@ -41,7 +39,7 @@ body {
 
 .portfolio-block {
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 .centered {
@@ -56,7 +54,7 @@ body {
 
 /* Wrapper for page content to push down footer */
 #wrap {
-    min-height: 100%;
+    min-height: 97%;
     height: auto !important;
     height: 100%;
     /* Negative indent footer by its height */
@@ -90,7 +88,9 @@ body {
     margin: 20px 0;
 }
 
-.muted {color: #999;}
+.muted {
+    color: #999;
+}
 
 .fnbtn {
     color: #999;
@@ -104,9 +104,43 @@ body {
     display: none;
 }
 
-/*
- * NAVIGATION
- */
+.intro {
+    font-family: pt-sans-narrow, sans-serif;
+}
+
+#social-networks {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.social-img {
+    height: 50px;
+    margin: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: pt-sans-narrow, sans-serif;
+}
+
+/*screen-sm*/
+@media (min-width: 320px) {
+    .intro {
+        padding-top: 50px;
+        font-size: 18px;
+    }
+
+    #index-content {
+        padding-top: 20px;
+    }
+
+    .profile-img {
+        text-align: center; 
+    }
+    
+    .face-img {
+        width: 100%;
+    }
+}
 
 /*screen-sm*/
 @media (min-width: 768px) {
@@ -133,6 +167,18 @@ body {
         /*border-bottom: 5px solid #269abc;*/
         padding-bottom: 2px;
         background-color: #dddddd;
+    }
+    
+    .intro {
+        padding-top: 50px;
+    }
+    
+    #index-content {
+        padding-top: 20px;
+    }
+    
+    .profile-img {
+        text-align: center;
     }
 }
 
@@ -161,6 +207,15 @@ body {
         /*border-bottom: 5px solid #269abc;*/
         padding-bottom: 19px;
         background-color: #dddddd;
+    }
+    
+    .intro {
+        padding-top: 0px;
+        font-size: 22px;
+    }
+    
+    #index-content {
+        padding-top: 50px;
     }
 }
 
