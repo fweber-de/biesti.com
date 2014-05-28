@@ -25,6 +25,25 @@ body {
     border-bottom: 5px solid #269abc;
 }
 
+.content {
+    padding-top: 30px;
+}
+
+.portfolio-title {
+    margin-top: 1rem;
+    margin-bottom: .25rem;
+}
+
+.portfolio-link a {
+    font-weight: 300;
+    color: #8a8a8a;
+}
+
+.portfolio-block {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 /*
  * NAVIGATION
  */
