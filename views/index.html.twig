@@ -20,7 +20,7 @@
                 a Dresden based Tech-Enthusiast, <a href="https://github.com/fweber-de" target="_blank">Programmer</a>,
                 <a href="http://weber-elektronik.de" target="_blank">Web-Developer</a>,<br>
                 Musician and Hobby-Chef.<br>
-                Currently, I am employed as an Application Developer for <a href="http://ligneus.de" target="_blank">Ligneus
+                Currently, I am employed as an Software Engineer for <a href="http://ligneus.de" target="_blank">Ligneus
                     GmbH</a> in Ottendorf-Okrilla, near Dresden.<br>
                 <br>
                 As this website resembles my <a href="{{ app.request.baseUrl }}/portfolio">Portfolio</a>, you could have
@@ -58,10 +58,46 @@
 
     </div>
 
+    <div class="row">
+
+        <div class="col-lg-12">
+
+            <div id="communication">
+
+                <h2>My Public Key</h2>
+
+                <button class="btn btn-success" data-toggle="modal" data-target="#key-modal">
+                    Show
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
     <div class="hidden" id="profile-img-src-box">
         <span id="src-pi-1">{{ app.request.baseUrl }}/assets/img/pi-1.jpg</span>
         <span id="src-pi-2">{{ app.request.baseUrl }}/assets/img/pi-2.jpg</span>
         <span id="src-pi-3">{{ app.request.baseUrl }}/assets/img/pi-3.jpg</span>
+    </div>
+
+    <!-- Key Modal -->
+    <div class="modal fade" id="key-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Public Key</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control" rows="10" id="key-area"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}

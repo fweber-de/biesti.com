@@ -113,6 +113,12 @@ body {
     text-align: center;
 }
 
+#communication {
+    padding-top: 50px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
 .social-img {
     height: 50px;
     margin: 10px;

@@ -20,4 +20,12 @@ $(document).ready(function() {
         if(picn > $('#profile-img-src-box').children().length) picn = 1;
     }, 5000);
 
+    //public key
+    var publicKey = null;
+
+    $.get('https://keybase.io/fweber/key.asc', function(data) {
+        publicKey = data;
+        $('#key-area').html(data);
+    });
+
 });
