@@ -1,0 +1,11 @@
+index:
+    path: /
+    defaults: { _controller: fweberWebsiteBundle:Page:index }
+
+portfolio:
+    path: /portfolio
+    defaults: { _controller: fweberWebsiteBundle:Page:portfolio }
+
+imprint:
+    path: /imprint
+    defaults: { _controller: fweberWebsiteBundle:Page:imprint }
