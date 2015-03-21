@@ -1,0 +1,7 @@
+fweber_blog:
+    resource: "@fweberBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+
+fweber_website:
+    resource: "@fweberWebsiteBundle/Resources/config/routing.yml"
+    prefix:   /
