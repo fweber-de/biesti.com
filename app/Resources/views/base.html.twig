@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Florian Weber | {{ app.request.host }}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- OGP -->
+    <meta property="og:url" content="{{ app.request.getUri() }}"/>
+    <meta property="og:title" content="{% block ogpTitle %}Florian Weber | {{ app.request.host }}{% endblock %}"/>
+    <meta property="og:image" content="{% block ogpImage %}{{ url('root') }}assets/img/pi-1.jpg{% endblock %}"/>
+    <meta property="og:image:type" content="image/jpeg"/>
+    <meta property="og:image:width" content="440"/>
+    <meta property="og:image:height" content="440"/>
+    <meta property="og:description" content="Tech-Enthusiast, Programmer, Web-Developer, Musician and Hobby-Chef"/>
+    <!--------->
+
+    <!-- JS -->
+    <script src="{{ app.request.baseUrl }}/assets/js/lib/jquery-1.11.0.min.js"></script>
+    <script src="{{ app.request.baseUrl }}/assets/js/lib/bootstrap.min.js"></script>
+    <script src="{{ app.request.baseUrl }}/assets/js/app.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ app.request.baseUrl }}/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ app.request.baseUrl }}/assets/css/docs.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ app.request.baseUrl }}/assets/css/app.css"/>
+
+    <!-- FONTS -->
+    <script src="//use.edgefonts.net/abel:n4:all.js"></script>
+    <script src="//use.edgefonts.net/poiret-one:n4:all.js"></script>
+    <script src="//use.edgefonts.net/source-sans-pro.js"></script>
+    <script src="//use.edgefonts.net/pt-sans-narrow:n4,n7:all.js"></script>
+</head>
+<body>
+
+<div id="wrap">
+    {% block body %}
+    {% endblock %}
+</div>
+
+<div id="footer">
+    <div class="container">
+        <div class="centered copyright">
+            <p class="text-muted credit">&copy; {{ "now"|date('Y') }}, Florian Weber | <a
+                        href="{{ path('index') }}">Home</a></p>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>
