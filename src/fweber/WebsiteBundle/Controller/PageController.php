@@ -13,16 +13,11 @@ class PageController extends Controller
 
     public function portfolioAction()
     {
-
-    }
-
-    public function contactAction()
-    {
-
+        return $this->render(':Page:portfolio.html.twig');
     }
 
     public function imprintAction()
     {
-
+        return $this->render(':Page:imprint.html.twig');
     }
 }

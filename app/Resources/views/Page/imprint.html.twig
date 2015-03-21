@@ -1,0 +1,69 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Florian Weber | Imprint{% endblock %}
+
+{% block currentPage %}imprint{% endblock %}
+
+{% block app %}
+
+    <div class="bs-callout bs-callout-danger">
+        <h4><span class="glyphicon glyphicon-warning-sign"></span> Disclaimer</h4>
+
+        <p>
+            This is the personal Website of Florian Weber.<br>
+            The author is only responsible for the contents of the pages in this Domain
+            <a href="http://{{ app.request.host }}">{{ app.request.host }}</a>,<br>
+            not for any links to external sites.
+        </p>
+    </div>
+
+    <div class="bs-callout bs-callout-info">
+        <h4><span class="glyphicon glyphicon-heart-empty"></span> This Page is crafted and owned by</h4>
+
+        <p>
+            <strong>Florian Weber</strong><br>
+            Coschützer Strasse 23<br>
+            01187 Dresden<br>
+            <abbr title="Phone">P:</abbr> +49 176 61603025<br>
+            <br>
+            <span class="glyphicon glyphicon-envelope"></span>
+            <a href="mailto:florian.weber@fweber.info">florian.weber@fweber.info</a>
+        </p>
+    </div>
+
+    <div class="bs-callout bs-callout-warning">
+        <h4><span class="glyphicon glyphicon-tint"></span> Webdesign</h4>
+
+        <p>
+            <strong>IT-Dienstleistungen und Unternehmensberatung</strong><br>
+            Andreas Weber<br>
+            Lessingstrasse 3<br>
+            02991 Lauta OT Torno<br>
+            <br>
+            Ust-Identnummer: DE 248 241 289<br>
+            <br>
+            <a href="http://weber-elektronik.de/">http://weber-elektronik.de</a><br>
+            <span class="glyphicon glyphicon-envelope"></span>
+            <a href="mailto:info@weber-elektronik.de">info@weber-elektronik.de</a>
+        </p>
+    </div>
+
+    <div class="bs-callout">
+        <h4><span class="glyphicon glyphicon-wrench"></span> Tech</h4>
+
+        <p>
+            <strong>This page is built with:</strong>
+        </p>
+
+        <p>
+            <strong><a href="http://getbootstrap.com">Bootstrap</a></strong><br>
+            Bootstrap is licensed under MIT, documentation under CC BY 3.0
+        </p>
+
+        <p>
+            <strong><a href="http://symfony.com/">Symfony2 Framework</a></strong><br>
+            <a href="https://github.com/symfony/symfony/blob/2.7/LICENSE">License</a>
+        </p>
+    </div>
+
+{% endblock %}
