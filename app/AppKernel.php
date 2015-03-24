@@ -18,6 +18,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new fweber\WebsiteBundle\fweberWebsiteBundle(),
             new fweber\BlogBundle\fweberBlogBundle(),
+            new fweber\BackendBundle\fweberBackendBundle(),
+            new fweber\DataBundle\fweberDataBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

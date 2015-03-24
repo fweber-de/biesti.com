@@ -1,0 +1,3 @@
+fweber_backend_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: fweberBackendBundle:Default:index }

@@ -1,3 +1,7 @@
+fweber_backend:
+    resource: "@fweberBackendBundle/Resources/config/routing.yml"
+    prefix:   /backend
+
 fweber_blog:
     resource: "@fweberBlogBundle/Resources/config/routing.yml"
     prefix:   /blog
