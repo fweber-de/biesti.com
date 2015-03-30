@@ -1,0 +1,10 @@
+backend_index:
+    pattern:  /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: backend_dashboard
+        permanent: true
+
+backend_dashboard:
+    pattern:  /dashboard
+    defaults: { _controller: fweberBackendBundle:Page:dashboard }
