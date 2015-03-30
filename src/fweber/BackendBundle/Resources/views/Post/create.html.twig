@@ -1,0 +1,14 @@
+{% extends 'fweberBackendBundle::layout.html.twig' %}
+
+{% block currentPage %}posts{% endblock %}
+
+{% block content %}
+
+    <h2>
+        <span class="glyphicon glyphicon-th-list"></span>
+        <a href="{{ path('backend_posts_collection') }}">Posts</a>
+        /
+        Add
+    </h2>
+
+{% endblock %}

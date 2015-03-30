@@ -1,3 +1,7 @@
 backend_posts_collection:
     pattern:  /
     defaults: { _controller: fweberBackendBundle:Post:collection }
+
+backend_posts_create:
+    pattern:  /add
+    defaults: { _controller: fweberBackendBundle:Post:create }
