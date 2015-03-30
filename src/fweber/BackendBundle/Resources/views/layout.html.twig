@@ -11,10 +11,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="{{ asset('assets/js/backend.js') }}"></script>
 
+    <!-- BOWER -->
+    {% javascripts
+        '@fweberAssetsBundle/Resources/public/vendor/pen/src/pen.js'
+        '@fweberAssetsBundle/Resources/public/vendor/pen/src/markdown.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/docs.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/backend.css') }}"/>
+
+    <!-- BOWER -->
+    {% stylesheets
+        '@fweberAssetsBundle/Resources/public/vendor/pen/src/pen.css'
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 </head>
 <body>
 
