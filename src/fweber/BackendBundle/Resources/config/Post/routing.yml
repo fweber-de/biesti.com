@@ -1,0 +1,3 @@
+backend_posts_collection:
+    pattern:  /
+    defaults: { _controller: fweberBackendBundle:Post:collection }

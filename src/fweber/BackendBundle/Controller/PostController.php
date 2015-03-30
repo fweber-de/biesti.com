@@ -14,7 +14,7 @@ class PostController extends Controller
         $posts = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findAll();
 
         return $this->render('fweberBackendBundle:Post:collection.html.twig', array(
-            'posts' => $posts
+            'posts' => $posts,
         ));
     }
 }
