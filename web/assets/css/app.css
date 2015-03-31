@@ -3,6 +3,11 @@
  * © 2014 Florian Weber
  */
 
+.anchor-link {
+    font-size: 16px;
+    padding-left: 10px;
+}
+
 .head {
     padding-top: 10px;
 }

@@ -5,12 +5,15 @@
 {% block app %}
 
     <link rel="stylesheet" href="{{ asset('assets/css/post.css') }}">
+    <script src="{{ asset('assets/js/post.js') }}"></script>
 
-    <h1>{{ post.title }}</h1>
+    <div class="post">
+        <h1>{{ post.title }}</h1>
 
-    <div class="post-text">{{ post.text|markdown|raw }}</div>
+        <div class="post-text">{{ post.text|markdown|raw }}</div>
 
-    <hr>
+        <hr>
+    </div>
 
     {% if app.environment == 'prod' %}
         <div id="disqus_thread"></div>
