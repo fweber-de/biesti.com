@@ -72,7 +72,8 @@
 
 .editor-form {
     border-right: 1px solid #dddddd;
-    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .editor-form input {
@@ -82,9 +83,13 @@
     padding-bottom: 5px;
     font-size: 26px;
     width: 100%;
+    border-bottom: 1px solid #dddddd;
 }
 
 .editor-preview {
     width: 100%;
-    padding: 19px;
+    padding-left: 8px;
+    padding-right: 8px;
+    overflow-y: scroll;
+    padding-right: 0;
 }

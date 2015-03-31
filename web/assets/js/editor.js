@@ -9,7 +9,7 @@ $(document).ready(function () {
     editor.setTheme("ace/theme/github");
     editor.getSession().setMode("ace/mode/markdown");
     editor.getSession().setTabSize(4);
-    document.getElementById('ace-editor').style.fontSize='16px';
+    document.getElementById('ace-editor').style.fontSize = '16px';
 
     //position cells
     var positionCells = function () {
@@ -18,9 +18,9 @@ $(document).ready(function () {
         var windowHeight = window.innerHeight;
         var titleFieldHeight = $('#input-title').height();
 
-        $('.editor-form').css('width', windowWidth * 0.35);
         $('.editor-body').css('height', windowHeight - topHeight - 1);
         $('#ace-editor').css('height', windowHeight - topHeight - titleFieldHeight - 12);
+        $('.editor-preview').css('height', windowHeight - topHeight - 1);
     };
 
     positionCells();
@@ -28,7 +28,7 @@ $(document).ready(function () {
     //save
     $('#btn-save').click(function () {
         var title = $('#input-title').val();
-        var text = $('#input-text').val();
+        var text = editor.getValue();
 
         if (title === '' || text === '') {
             swal('Attention!', 'Title and Text must not be empty!', 'warning');
@@ -50,8 +50,19 @@ $(document).ready(function () {
         }
     });
 
+    //markdown
+    var md = new Remarkable('commonmark');
+    $('#input-title').keyup(function () {
+        $('#editor-preview-title').html('<h1>' + $(this).val() + '</h1>')
+    });
+    editor.getSession().on('change', function (e) {
+        $('#editor-preview-text').html(md.render(editor.getValue()));
+    });
+
+    //resize
     $(window).resize(function () {
         positionCells();
+        editor.resize();
     });
 
 });

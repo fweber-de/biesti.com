@@ -22,18 +22,29 @@
         <div class="editor-clear"></div>
     </div>
 
-    <div class="editor-body">
-        <div class="editor-form editor-left">
-            <div class="editor-title">
-                <input type="text" placeholder="Title" id="input-title">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-5 editor-form">
+
+                <div class="editor-title">
+                    <input type="text" placeholder="Title" id="input-title">
+                </div>
+                <div>
+                    <div id="ace-editor"></div>
+                </div>
+
             </div>
-            <div>
-                <div id="ace-editor"></div>
+            <div class="col-lg-7" style="padding-right: 0;">
+
+                <div class="editor-preview">
+                    <div id="editor-preview-title"></div>
+                    <div id="editor-preview-text"></div>
+                </div>
+
             </div>
         </div>
-        <div class="editor-preview"></div>
-        <div class="editor-clear"></div>
     </div>
+
 </div>
 
 <link rel="stylesheet" href="{{ asset('assets/css/editor.css') }}">
