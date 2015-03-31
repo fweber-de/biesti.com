@@ -2,6 +2,7 @@
 
 namespace fweber\DataBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -62,6 +63,17 @@ class Post
      * @ORM\Column(name="is_draft", type="boolean")
      */
     private $isDraft;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
+     * @ORM\JoinTable(name="posts_categories")
+     */
+    private $categories;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -215,5 +227,38 @@ class Post
     public function getIsDraft()
     {
         return $this->isDraft;
+    }
+
+    /**
+     * Add categories
+     *
+     * @param \fweber\DataBundle\Entity\Category $categories
+     * @return Post
+     */
+    public function addCategory(\fweber\DataBundle\Entity\Category $categories)
+    {
+        $this->categories[] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Remove categories
+     *
+     * @param \fweber\DataBundle\Entity\Category $categories
+     */
+    public function removeCategory(\fweber\DataBundle\Entity\Category $categories)
+    {
+        $this->categories->removeElement($categories);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
