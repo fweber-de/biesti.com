@@ -17,22 +17,40 @@
     </div>
 
     {% if posts|length() > 0 %}
-        <table class="table table-striped table-bordered">
+        <table class="table table-bordered">
             {% for post in posts %}
-                <th>
+                <tr class="{% if post.isDraft %}warning{% endif %}">
                     <td>
-                        <h5>{{ post.title }}</h5>
-                        <div class="post-text-snippet">
-                            {{ post.text }}
+                        <h4>
+                            <a href="#">
+                                {{ post.title }}
+                            </a>
+                        </h4>
+                        {% if post.isDraft %}
+                            <span class="label label-waring">
+                                <i class="fa fa-edit"></i>
+                                Draft
+                            </span>
+                        {% endif %}
+                    </td>
+                    <td style="font-size: 16px;">
+                        <span class="label label-success">
+                            <i class="fa fa-plus"></i>
+                            {{ post.openDate|date('d.m.Y H:i:s') }}
+                        </span>
+                        <br>
+                        <span class="label label-danger">
+                            <i class="fa fa-clock-o"></i>
+                            {{ post.publishDate|date('d.m.Y H:i:s') }}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="pull-right">
+                            <a class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
+                            <a class="btn btn-danger" href="#"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>
-                    <td>
-                        {{ post.publishDate|date('d.m.Y H:i:s') }}
-                    </td>
-                    <td>
-                        {{ post.openDate|date('d.m.Y H:i:s') }}
-                    </td>
-                </th>
+                </tr>
             {% endfor %}
         </table>
     {% else %}
