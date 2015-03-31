@@ -9,9 +9,15 @@
     {% for post in posts %}
         <div class="media">
             <div class="media-body">
-                <h4 class="pull-right">{{ post.publishDate|date('d.m.Y H:i:s') }}</h4>
-                <h2 class="media-heading">{{ post.title }}</h2>
-                <div class="post-excerpt">{{ post.text|ellipse(200) }}</div>
+                <h2 class="media-heading">
+                    <a href="{{ path('blog_post', {slug: post.slug}) }}">{{ post.title }}</a>
+                </h2>
+                <h4>
+                    Posted on
+                    <span style="font-style: oblique;">{{ post.publishDate|date('d.m.Y') }}</span>
+                    at
+                    <span style="font-style: oblique;">{{ post.publishDate|date('H:i') }}</span>
+                </h4>
             </div>
         </div>
     {% else %}

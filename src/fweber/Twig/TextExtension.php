@@ -17,7 +17,7 @@ class TextExtension extends \Twig_Extension
             return $text;
         }
 
-        return substr($text, 0, $length - 3) . '...';
+        return substr($text, 0, $length - 3).'...';
     }
 
     public function getName()
