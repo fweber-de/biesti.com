@@ -1,0 +1,22 @@
+{
+  "name": "fweber.info",
+  "version": "1.0.0",
+  "homepage": "https://github.com/fweber-de/fweber.info",
+  "authors": [
+    "Florian Weber <florian.weber@fweber.info>"
+  ],
+  "description": "http://fweber.info",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sweetalert": "~0.5.0",
+    "remarkable": "~1.6.0"
+  }
+}

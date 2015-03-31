@@ -8,3 +8,7 @@ backend_index:
 backend_dashboard:
     pattern:  /dashboard
     defaults: { _controller: fweberBackendBundle:Page:dashboard }
+
+backend_posts:
+    resource:   "@fweberBackendBundle/Resources/config/Post/routing.yml"
+    prefix:     /posts

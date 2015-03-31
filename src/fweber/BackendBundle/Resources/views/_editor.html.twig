@@ -1,0 +1,51 @@
+{% set method = 'add' %}
+{% if editorMethod == 'edit' %}
+    {% set method = 'edit' %}
+{% endif %}
+
+<div class="editor-container">
+    <div class="editor-top-bar">
+        <div class="editor-top-back editor-left" data-url="{{ backUrl }}">
+            <i class="fa fa-chevron-left"></i>
+        </div>
+        <div class="editor-top-head editor-left{% if method == 'add' %} editor-font-color-add{% else %} editor-font-color-edit{% endif %}">
+            {{ editorHead }}
+        </div>
+
+        <div class="editor-top-button editor-top-text editor-right">
+            {{ app.user.username }}
+        </div>
+        <div class="editor-top-button editor-right" id="btn-save">
+            <i class="fa fa-save"></i>
+        </div>
+
+        <div class="editor-clear"></div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-5 col-md-5 editor-form">
+
+                <div class="editor-title">
+                    <input type="text" placeholder="Title" id="input-title">
+                </div>
+                <div>
+                    <div id="ace-editor"></div>
+                </div>
+
+            </div>
+            <div class="col-lg-7 col-md-7" style="padding-right: 0;">
+
+                <div class="editor-preview">
+                    <div id="editor-preview-title"></div>
+                    <div id="editor-preview-text"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="{{ asset('assets/css/editor.css') }}">
+<script src="{{ asset('assets/js/editor.js') }}"></script>
