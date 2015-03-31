@@ -16,7 +16,10 @@ class PostController extends Controller
 {
     public function collectionAction()
     {
-        $posts = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findAll();
+        $posts = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findBy(
+            array(),
+            array('publishDate' => 'desc')
+        );
 
         return $this->render(
             'fweberBackendBundle:Post:collection.html.twig',
@@ -47,7 +50,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string) $errors;
+                    $message->message = (string)$errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -109,7 +112,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string) $errors;
+                    $message->message = (string)$errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));

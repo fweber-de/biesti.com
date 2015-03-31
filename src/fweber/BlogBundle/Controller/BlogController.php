@@ -8,7 +8,10 @@ class BlogController extends Controller
 {
     public function postsAction()
     {
-        $posts = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findAll();
+        $posts = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findBy(
+            array(),
+            array('publishDate' => 'desc')
+        );
 
         return $this->render(
             ':Blog:posts.html.twig',
