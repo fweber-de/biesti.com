@@ -4,6 +4,20 @@
 
 {% block app %}
 
-    #
+    <h1>Posts</h1>
+
+    {% for post in posts %}
+        <div class="media">
+            <div class="media-body">
+                <h4 class="pull-right">{{ post.publishDate|date('d.m.Y H:i:s') }}</h4>
+                <h2 class="media-heading">{{ post.title }}</h2>
+                <div class="post-excerpt">{{ post.text|ellipse(200) }}</div>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-warning">
+            No Posts yet!
+        </div>
+    {% endfor %}
 
 {% endblock %}

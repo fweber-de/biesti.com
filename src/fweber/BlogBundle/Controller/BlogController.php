@@ -8,6 +8,13 @@ class BlogController extends Controller
 {
     public function postsAction()
     {
-        return $this->render(':Blog:posts.html.twig');
+        $posts = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findAll();
+
+        return $this->render(
+            ':Blog:posts.html.twig',
+            array(
+                'posts' => $posts
+            )
+        );
     }
 }
