@@ -16,6 +16,10 @@
         <div>
             {{ post.publishDate|date('d.m.Y H:i') }}
         </div>
+
+            <a href="{{ path('backend_posts_update', {postId: post.id}) }}">
+            </a>
+        </div>
     </div>
 
     <div class="post">
