@@ -1,0 +1,14 @@
+{% extends 'fweberBackendBundle::layout_editor.html.twig' %}
+
+{% block currentPage %}posts{% endblock %}
+
+{% block content %}
+
+    {{ include('fweberBackendBundle::_editor.html.twig', {
+        backUrl: path('backend_posts_collection'),
+        editorHead: 'Edit Post ~ ' ~ post.title,
+        editorMethod: 'edit',
+        post: post
+    }) }}
+
+{% endblock %}

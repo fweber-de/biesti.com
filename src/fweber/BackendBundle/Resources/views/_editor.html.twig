@@ -15,7 +15,11 @@
         <div class="editor-top-button editor-top-text editor-right">
             {{ app.user.username }}
         </div>
-        <div class="editor-top-button editor-right" id="btn-save">
+        <div class="editor-top-button editor-right{% if method == 'add' %} editor-font-color-add{% else %} editor-font-color-edit{% endif %}"
+             id="btn-save"
+             data-action="{{ method }}"
+                {% if post is defined %}data-id="{{ post.id }}"{% endif %}
+                >
             <i class="fa fa-save"></i>
         </div>
 
@@ -27,10 +31,11 @@
             <div class="col-lg-5 col-md-5 editor-form">
 
                 <div class="editor-title">
-                    <input type="text" placeholder="Title" id="input-title">
+                    <input type="text" placeholder="Title"
+                           id="input-title"{% if post is defined %} value="{{ post.title }}"{% endif %}>
                 </div>
                 <div>
-                    <div id="ace-editor"></div>
+                    <div id="ace-editor">{% if post is defined %}{{ post.text }}{% endif %}</div>
                 </div>
 
             </div>
