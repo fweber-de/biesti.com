@@ -1,6 +1,8 @@
 fweber_backend:
     resource: "@fweberBackendBundle/Resources/config/routing.yml"
     prefix:   /backend
+    options:
+        expose: true
 
 fweber_blog:
     resource: "@fweberBlogBundle/Resources/config/routing.yml"
@@ -12,3 +14,6 @@ fweber_website:
 
 _user_bundle:
     resource: "@fweberUserBundle/Resources/config/routing.yml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

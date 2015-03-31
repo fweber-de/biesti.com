@@ -1,0 +1,100 @@
+/*
+ * fweber.info
+ */
+
+.editor-font-color-add {
+    color: #5cb85c;
+}
+
+.editor-font-color-edit {
+    color: #f0ad4e;
+}
+
+.editor-top-bar {
+    border-bottom: 1px solid #dddddd;
+}
+
+.editor-top-back i {
+    font-size: 36px;
+}
+
+.editor-top-back {
+    border-right: 1px solid #dddddd;
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 12px;
+    margin-right: 12px;
+}
+
+.editor-top-back:hover {
+    cursor: pointer;
+    background-color: #efefef;
+}
+
+.editor-top-head {
+    font-size: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.editor-top-button i {
+    font-size: 36px;
+}
+
+.editor-top-button {
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 12px;
+}
+
+.editor-top-text {
+    font-size: 25px;
+}
+
+.editor-top-button:hover {
+    cursor: pointer;
+    background-color: #efefef;
+}
+
+.editor-left {
+    float: left;
+}
+
+.editor-right {
+    float: right;
+}
+
+.editor-clear {
+    clear: both;
+}
+
+.editor-form {
+    border-right: 1px solid #dddddd;
+    height: 100%;
+}
+
+.editor-form input {
+    border: none;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 26px;
+    width: 100%;
+}
+
+.editor-form textarea {
+    border: none;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+.editor-preview {
+    width: 100%;
+    padding: 19px;
+}

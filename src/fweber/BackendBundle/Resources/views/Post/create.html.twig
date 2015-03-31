@@ -1,14 +1,13 @@
-{% extends 'fweberBackendBundle::layout.html.twig' %}
+{% extends 'fweberBackendBundle::layout_editor.html.twig' %}
 
 {% block currentPage %}posts{% endblock %}
 
 {% block content %}
 
-    <h2>
-        <span class="glyphicon glyphicon-th-list"></span>
-        <a href="{{ path('backend_posts_collection') }}">Posts</a>
-        /
-        Add
-    </h2>
+    {{ include('fweberBackendBundle::_editor.html.twig', {
+        backUrl: path('backend_posts_collection'),
+        editorHead: 'Add Post',
+        editorMethod: 'add'
+    }) }}
 
 {% endblock %}

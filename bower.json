@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "homepage": "https://github.com/fweber-de/fweber.info",
   "authors": [
-    "Florian Weber <fweber@ligneus.de>"
+    "Florian Weber <florian.weber@fweber.info>"
   ],
   "description": "http://fweber.info",
   "license": "MIT",
@@ -16,6 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "pen": "~0.1.0"
+    "sweetalert": "~0.5.0"
   }
 }

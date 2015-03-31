@@ -21,8 +21,7 @@ class PostController extends Controller
 
     public function createAction(Request $request)
     {
-        if($request->get('sent', 0) == 1) {
-
+        if ($request->get('sent', 0) == 1) {
         }
 
         return $this->render('fweberBackendBundle:Post:create.html.twig');
