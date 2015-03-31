@@ -13,3 +13,4 @@
 /src/fweber/AssetsBundle/Resources/public/vendor/
 /web/css
 /web/js
+*.php~

@@ -3,6 +3,7 @@
 namespace fweber\BackendBundle\Controller;
 
 use fweber\BackendBundle\Component\ApiMessage;
+use fweber\BackendBundle\Component\SlugGenerator;
 use fweber\DataBundle\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,6 +33,7 @@ class PostController extends Controller
         if ($request->get('sent', 0) == 1) {
             $post = new Post();
             $post->setTitle($request->get('title'))
+                ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
                 ->setIsDraft(false)
                 ->setOpenDate(new \DateTime('now'))
@@ -94,6 +96,7 @@ class PostController extends Controller
 
         if ($request->get('sent', 0) == 1) {
             $post->setTitle($request->get('title'))
+                ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
                 ->setIsDraft(false)
                 ->setPublishDate(new \DateTime('now'));
