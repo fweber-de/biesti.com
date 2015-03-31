@@ -5,3 +5,7 @@ backend_posts_collection:
 backend_posts_create:
     pattern:  /add
     defaults: { _controller: fweberBackendBundle:Post:create }
+
+backend_posts_update:
+    pattern:  /{postId}/edit
+    defaults: { _controller: fweberBackendBundle:Post:update }

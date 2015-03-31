@@ -33,7 +33,10 @@ $(document).ready(function () {
         if (title === '' || text === '') {
             swal('Attention!', 'Title and Text must not be empty!', 'warning');
         } else {
-            var url = Routing.generate('backend_posts_create');
+
+            var url = ($(this).data('action') === 'add')
+                ? Routing.generate('backend_posts_create')
+                : Routing.generate('backend_posts_update', {postId: $(this).data('id')});
 
             $.post(url, {
                 sent: 1,
@@ -44,7 +47,17 @@ $(document).ready(function () {
                 if (data.status === 'error') {
                     swal('Error!', data.message, 'error');
                 } else {
-                    window.location.href == Routing.generate('backend_posts_collection');
+                    swal({
+                        title: 'Success!',
+                        text: data.message,
+                        type: 'success',
+                        showCancelButton: false,
+                        confirmButtonColor: "#5cb85c",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: true
+                    }, function () {
+                        window.location.href = Routing.generate('backend_posts_collection');
+                    });
                 }
             });
         }
@@ -64,5 +77,8 @@ $(document).ready(function () {
         positionCells();
         editor.resize();
     });
+
+    $('#editor-preview-title').html('<h1>' + $('#input-title').val() + '</h1>')
+    $('#editor-preview-text').html(md.render(editor.getValue()));
 
 });

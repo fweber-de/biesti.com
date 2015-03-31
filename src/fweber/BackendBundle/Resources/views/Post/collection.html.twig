@@ -46,7 +46,9 @@
                     </td>
                     <td>
                         <div class="pull-right">
-                            <a class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
+                            <a class="btn btn-warning" href="{{ path('backend_posts_update', {postId: post.id}) }}">
+                                <i class="fa fa-edit"></i>
+                            </a>
                             <a class="btn btn-danger" href="#"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>
