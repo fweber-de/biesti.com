@@ -1,3 +1,7 @@
 blog_posts:
     path: /
     defaults: { _controller: fweberBlogBundle:Blog:posts }
+
+blog_post:
+    path: /p/{slug}
+    defaults: { _controller: fweberBlogBundle:Blog:post }

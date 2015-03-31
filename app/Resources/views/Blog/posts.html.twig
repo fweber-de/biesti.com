@@ -4,6 +4,26 @@
 
 {% block app %}
 
-    #
+    <h1>Posts</h1>
+
+    {% for post in posts %}
+        <div class="media">
+            <div class="media-body">
+                <h2 class="media-heading">
+                    <a href="{{ path('blog_post', {slug: post.slug}) }}">{{ post.title }}</a>
+                </h2>
+                <h4>
+                    Posted on
+                    <span style="font-style: oblique;">{{ post.publishDate|date('d.m.Y') }}</span>
+                    at
+                    <span style="font-style: oblique;">{{ post.publishDate|date('H:i') }}</span>
+                </h4>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-warning">
+            No Posts yet!
+        </div>
+    {% endfor %}
 
 {% endblock %}

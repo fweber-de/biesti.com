@@ -1,0 +1,12 @@
+fweber\DataBundle\Entity\Post:
+    properties:
+        title:
+            - NotBlank: ~
+        slug:
+            - NotBlank: ~
+        text:
+            - NotBlank: ~
+        openDate:
+            - DateTime: ~
+        publishDate:
+            - DateTime: ~
