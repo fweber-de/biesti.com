@@ -9,3 +9,7 @@ backend_posts_create:
 backend_posts_update:
     pattern:  /{postId}/edit
     defaults: { _controller: fweberBackendBundle:Post:update }
+
+backend_posts_delete:
+    pattern:  /{postId}/delete
+    defaults: { _controller: fweberBackendBundle:Post:delete }

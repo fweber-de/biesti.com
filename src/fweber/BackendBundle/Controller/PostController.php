@@ -45,7 +45,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string)$errors;
+                    $message->message = (string) $errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -106,7 +106,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string)$errors;
+                    $message->message = (string) $errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -121,7 +121,7 @@ class PostController extends Controller
                     return $this->render(
                         'fweberBackendBundle:Post:update.html.twig',
                         array(
-                            'post' => $post
+                            'post' => $post,
                         )
                     );
                 }
@@ -147,7 +147,31 @@ class PostController extends Controller
         return $this->render(
             'fweberBackendBundle:Post:update.html.twig',
             array(
-                'post' => $post
+                'post' => $post,
+            )
+        );
+    }
+
+    public function deleteAction(Request $request, $postId)
+    {
+        $post = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findOneById($postId);
+
+        if (!$post) {
+            throw new \InvalidArgumentException('Post not found!');
+        }
+
+        if ($request->get('sent', 0) == 1) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->remove($post);
+            $em->flush();
+
+            return $this->redirectToRoute('backend_posts_collection');
+        }
+
+        return $this->render(
+            'fweberBackendBundle:Post:delete.html.twig',
+            array(
+                'post' => $post,
             )
         );
     }
