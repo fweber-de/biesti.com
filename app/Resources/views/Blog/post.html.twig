@@ -4,6 +4,8 @@
 
 {% block app %}
 
+    <link rel="stylesheet" href="{{ asset('assets/css/post.css') }}">
+
     <h1>{{ post.title }}</h1>
 
     <div class="post-text">{{ post.text|markdown|raw }}</div>
