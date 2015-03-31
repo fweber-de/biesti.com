@@ -4,6 +4,13 @@ $(document).ready(function () {
         window.location.href = $(this).data('url');
     });
 
+    //ace
+    var editor = ace.edit("ace-editor");
+    editor.setTheme("ace/theme/github");
+    editor.getSession().setMode("ace/mode/markdown");
+    editor.getSession().setTabSize(4);
+    document.getElementById('ace-editor').style.fontSize='16px';
+
     //position cells
     var positionCells = function () {
         var windowWidth = window.innerWidth;
@@ -13,7 +20,7 @@ $(document).ready(function () {
 
         $('.editor-form').css('width', windowWidth * 0.35);
         $('.editor-body').css('height', windowHeight - topHeight - 1);
-        $('#input-text').css('height', windowHeight - topHeight - titleFieldHeight - 16);
+        $('#ace-editor').css('height', windowHeight - topHeight - titleFieldHeight - 12);
     };
 
     positionCells();
