@@ -17,7 +17,9 @@
             {{ post.publishDate|date('d.m.Y H:i') }}
         </div>
 
+        <div style="font-size: 16px">
             <a href="{{ path('backend_posts_update', {postId: post.id}) }}">
+                <i class="fa fa-wrench"></i> Bearbeiten
             </a>
         </div>
     </div>
