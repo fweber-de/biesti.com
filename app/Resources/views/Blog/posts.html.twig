@@ -12,6 +12,15 @@
                 <h2 class="media-heading">
                     <a href="{{ path('blog_post', {slug: post.slug}) }}">{{ post.title }}</a>
                 </h2>
+
+                {% if post.categories|length() > 0 %}
+                    <div class="posts-tags">
+                        {% for tag in post.categories %}
+                            #{{ tag.title }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
                 <h4>
                     Posted on
                     <span style="font-style: oblique;">{{ post.publishDate|date('d.m.Y') }}</span>

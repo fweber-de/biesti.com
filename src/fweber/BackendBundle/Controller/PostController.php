@@ -129,8 +129,7 @@ class PostController extends Controller
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
-                ->setIsDraft(false)
-                ->setPublishDate(new \DateTime('now'));
+                ->setIsDraft(false);
 
             //handle tags
             $_tags = json_decode($request->get('tags'));
