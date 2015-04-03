@@ -5,3 +5,11 @@ backend_tags_collection:
 backend_tags_create:
     pattern:  /add
     defaults: { _controller: fweberBackendBundle:Category:create }
+
+backend_tags_update:
+    pattern:  /edit/{tagId}
+    defaults: { _controller: fweberBackendBundle:Category:update }
+
+backend_tags_delete:
+    pattern:  /delete/{tagId}
+    defaults: { _controller: fweberBackendBundle:Category:delete }
