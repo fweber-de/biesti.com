@@ -1,0 +1,3 @@
+backend_users_collection:
+    pattern:  /
+    defaults: { _controller: fweberBackendBundle:User:collection }
