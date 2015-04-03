@@ -31,6 +31,8 @@ class PostController extends Controller
 
     public function createAction(Request $request)
     {
+        $tags = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findAll();
+
         //TODO: implement draft, publish date
 
         if ($request->get('sent', 0) == 1) {
@@ -50,7 +52,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string)$errors;
+                    $message->message = (string) $errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -62,7 +64,12 @@ class PostController extends Controller
                         $this->addFlash('error', $error);
                     }
 
-                    return $this->render('fweberBackendBundle:Post:create.html.twig');
+                    return $this->render(
+                        'fweberBackendBundle:Post:create.html.twig',
+                        array(
+                            'tags' => $tags,
+                        )
+                    );
                 }
             }
 
@@ -84,12 +91,18 @@ class PostController extends Controller
             }
         }
 
-        return $this->render('fweberBackendBundle:Post:create.html.twig');
+        return $this->render(
+            'fweberBackendBundle:Post:create.html.twig',
+            array(
+                'tags' => $tags,
+            )
+        );
     }
 
     public function updateAction(Request $request, $postId)
     {
         $post = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findOneById($postId);
+        $tags = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findAll();
 
         if (!$post) {
             throw new \InvalidArgumentException('Post not found!');
@@ -112,7 +125,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string)$errors;
+                    $message->message = (string) $errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -128,6 +141,7 @@ class PostController extends Controller
                         'fweberBackendBundle:Post:update.html.twig',
                         array(
                             'post' => $post,
+                            'tags' => $tags,
                         )
                     );
                 }
@@ -154,6 +168,7 @@ class PostController extends Controller
             'fweberBackendBundle:Post:update.html.twig',
             array(
                 'post' => $post,
+                'tags' => $tags,
             )
         );
     }

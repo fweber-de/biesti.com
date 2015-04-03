@@ -230,9 +230,10 @@ class Post
     }
 
     /**
-     * Add categories
+     * Add categories.
      *
      * @param \fweber\DataBundle\Entity\Category $categories
+     *
      * @return Post
      */
     public function addCategory(\fweber\DataBundle\Entity\Category $categories)
@@ -243,7 +244,7 @@ class Post
     }
 
     /**
-     * Remove categories
+     * Remove categories.
      *
      * @param \fweber\DataBundle\Entity\Category $categories
      */
@@ -253,9 +254,9 @@ class Post
     }
 
     /**
-     * Get categories
+     * Get categories.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCategories()
     {

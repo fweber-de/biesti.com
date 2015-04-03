@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Category
+ * Category.
  *
  * @ORM\Table("category")
  * @ORM\Entity
@@ -47,7 +47,7 @@ class Category
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return integer
      */
@@ -57,9 +57,10 @@ class Category
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
+     *
      * @return Category
      */
     public function setTitle($title)
@@ -70,7 +71,7 @@ class Category
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -80,9 +81,10 @@ class Category
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
+     *
      * @return Category
      */
     public function setSlug($slug)
@@ -93,7 +95,7 @@ class Category
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -103,9 +105,10 @@ class Category
     }
 
     /**
-     * Add posts
+     * Add posts.
      *
      * @param \fweber\DataBundle\Entity\Post $posts
+     *
      * @return Category
      */
     public function addPost(\fweber\DataBundle\Entity\Post $posts)
@@ -116,7 +119,7 @@ class Category
     }
 
     /**
-     * Remove posts
+     * Remove posts.
      *
      * @param \fweber\DataBundle\Entity\Post $posts
      */
@@ -126,9 +129,9 @@ class Category
     }
 
     /**
-     * Get posts
+     * Get posts.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPosts()
     {

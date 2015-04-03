@@ -77,11 +77,19 @@
                         multiple>
                     <option value=""></option>
 
-                    {% if post is defined %}
-                        {% for tag in post.categories %}
+                    {% if post is defined and post.categories|length() > 0 %}
+                        <optgroup label="Linked">
+                            {% for tag in post.categories %}
+                                <option value="{{ tag.id }}" selected>{{ tag.title }}</option>
+                            {% endfor %}
+                        </optgroup>
+                    {% endif %}
+
+                    <optgroup label="Available">
+                        {% for tag in tags %}
                             <option value="{{ tag.id }}" selected>{{ tag.title }}</option>
                         {% endfor %}
-                    {% endif %}
+                    </optgroup>
 
                 </select>
 

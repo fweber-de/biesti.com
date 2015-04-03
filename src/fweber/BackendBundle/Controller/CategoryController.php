@@ -28,7 +28,7 @@ class CategoryController extends Controller
         return $this->render(
             '@fweberBackend/Category/collection.html.twig',
             array(
-                'tags' => $tags
+                'tags' => $tags,
             )
         );
     }
@@ -48,7 +48,7 @@ class CategoryController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string)$errors;
+                    $message->message = (string) $errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -105,7 +105,7 @@ class CategoryController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string)$errors;
+                    $message->message = (string) $errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -120,7 +120,7 @@ class CategoryController extends Controller
                     return $this->render(
                         'fweberBackendBundle:Category:update.html.twig',
                         array(
-                            'tag' => $tag
+                            'tag' => $tag,
                         )
                     );
                 }
@@ -146,7 +146,7 @@ class CategoryController extends Controller
         return $this->render(
             '@fweberBackend/Category/update.html.twig',
             array(
-                'tag' => $tag
+                'tag' => $tag,
             )
         );
     }
