@@ -36,7 +36,6 @@ class PostController extends Controller
         $tags = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findAll();
 
         //TODO: implement draft, publish date
-
         if ($request->get('sent', 0) == 1) {
             $post = new Post();
             $post->setTitle($request->get('title'))
@@ -44,7 +43,8 @@ class PostController extends Controller
                 ->setText($request->get('text'))
                 ->setIsDraft(false)
                 ->setOpenDate(new \DateTime('now'))
-                ->setPublishDate(new \DateTime('now'));
+                ->setPublishDate(new \DateTime('now'))
+                ->setUser($this->getUser());
 
             //handle tags
             $_tags = json_decode($request->get('tags'));
