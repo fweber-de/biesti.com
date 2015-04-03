@@ -80,7 +80,7 @@ class PostController extends Controller
 
                 return $response;
             } else {
-                $this->redirectToRoute('backend_posts_collection');
+                return $this->redirectToRoute('backend_posts_collection');
             }
         }
 
@@ -146,7 +146,7 @@ class PostController extends Controller
 
                 return $response;
             } else {
-                $this->redirectToRoute('backend_posts_collection');
+                return $this->redirectToRoute('backend_posts_collection');
             }
         }
 

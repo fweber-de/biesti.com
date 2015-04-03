@@ -10,3 +10,7 @@ fweber\DataBundle\Entity\Post:
             - DateTime: ~
         publishDate:
             - DateTime: ~
+fweber\DataBundle\Entity\Category:
+    properties:
+        title:
+            - NotBlank: ~

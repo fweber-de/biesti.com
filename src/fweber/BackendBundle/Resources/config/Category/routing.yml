@@ -1,3 +1,7 @@
 backend_tags_collection:
     pattern:  /
     defaults: { _controller: fweberBackendBundle:Category:collection }
+
+backend_tags_create:
+    pattern:  /add
+    defaults: { _controller: fweberBackendBundle:Category:create }
