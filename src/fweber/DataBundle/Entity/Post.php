@@ -262,4 +262,11 @@ class Post
     {
         return $this->categories;
     }
+
+    public function setCategories(ArrayCollection $categories)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
 }

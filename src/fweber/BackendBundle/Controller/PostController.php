@@ -2,8 +2,10 @@
 
 namespace fweber\BackendBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use fweber\BackendBundle\Component\ApiMessage;
 use fweber\BackendBundle\Component\SlugGenerator;
+use fweber\DataBundle\Entity\Category;
 use fweber\DataBundle\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,6 +45,20 @@ class PostController extends Controller
                 ->setIsDraft(false)
                 ->setOpenDate(new \DateTime('now'))
                 ->setPublishDate(new \DateTime('now'));
+
+            //handle tags
+            $_tags = json_decode($request->get('tags'));
+
+            if (!is_null($_tags)) {
+                $tagCollection = new ArrayCollection();
+
+                foreach ($_tags as $_tag) {
+                    $tag = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findOneById($_tag);
+                    $tagCollection->add($tag);
+                }
+
+                $post->setCategories($tagCollection);
+            }
 
             //validation
             $validator = $this->get('validator');
@@ -109,13 +125,28 @@ class PostController extends Controller
         }
 
         //TODO: implement draft, publish date
-
         if ($request->get('sent', 0) == 1) {
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
                 ->setIsDraft(false)
                 ->setPublishDate(new \DateTime('now'));
+
+            //handle tags
+            $_tags = json_decode($request->get('tags'));
+
+            if (!is_null($_tags)) {
+                $tagCollection = new ArrayCollection();
+
+                foreach ($_tags as $_tag) {
+                    $tag = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findOneById($_tag);
+                    $tagCollection->add($tag);
+                }
+
+                $post->setCategories($tagCollection);
+            } else {
+                $post->setCategories(new ArrayCollection());
+            }
 
             //validation
             $validator = $this->get('validator');
