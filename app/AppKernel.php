@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new fweber\AssetsBundle\fweberAssetsBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

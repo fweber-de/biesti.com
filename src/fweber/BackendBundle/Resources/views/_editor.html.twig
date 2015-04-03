@@ -18,9 +18,14 @@
         <div class="editor-top-button editor-right{% if method == 'add' %} editor-font-color-add{% else %} editor-font-color-edit{% endif %}"
              id="btn-save"
              data-action="{{ method }}"
-                {% if post is defined %}data-id="{{ post.id }}"{% endif %}
+             {% if post is defined %}data-id="{{ post.id }}"{% endif %}
                 >
             <i class="fa fa-save"></i>
+        </div>
+        <div class="editor-top-button editor-right"
+             id="btn-tags"
+                >
+            <i class="fa fa-tags"></i>
         </div>
 
         <div class="editor-clear"></div>
@@ -31,8 +36,10 @@
             <div class="col-lg-5 col-md-5 editor-form">
 
                 <div class="editor-title">
-                    <input type="text" placeholder="Title"
-                           id="input-title"{% if post is defined %} value="{{ post.title }}"{% endif %}>
+                    <input type="text"
+                           placeholder="Title"
+                           id="input-title"{% if post is defined %} value="{{ post.title }}"{% endif %}
+                            >
                 </div>
                 <div>
                     <div id="ace-editor">{% if post is defined %}{{ post.text }}{% endif %}</div>
@@ -50,6 +57,49 @@
         </div>
     </div>
 
+</div>
+
+{#TAGS MODAL#}
+<div class="modal fade" id="modal-tags" tabindex="-1" role="dialog" aria-labelledby="modal-tags-label"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-tags-label">Tags</h4>
+            </div>
+            <div class="modal-body">
+
+                <select class="chosen-select"
+                        id="select-tags"
+                        data-placeholder="Choose a Tag..."
+                        multiple>
+                    <option value=""></option>
+
+                    {% if post is defined and post.categories|length() > 0 %}
+                        <optgroup label="Linked">
+                            {% for tag in post.categories %}
+                                <option value="{{ tag.id }}" selected>{{ tag.title }}</option>
+                            {% endfor %}
+                        </optgroup>
+                    {% endif %}
+
+                    <optgroup label="Available">
+                        {% for tag in tags %}
+                            <option value="{{ tag.id }}">{{ tag.title }}</option>
+                        {% endfor %}
+                    </optgroup>
+
+                </select>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                {#<button type="button" class="btn btn-primary" id="btn-save-tags">Save</button>#}
+            </div>
+        </div>
+    </div>
 </div>
 
 <link rel="stylesheet" href="{{ asset('assets/css/editor.css') }}">

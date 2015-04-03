@@ -18,6 +18,7 @@
   "dependencies": {
     "sweetalert": "~0.5.0",
     "remarkable": "~1.6.0",
-    "anchorify": "~1.1.4"
+    "anchorify": "~1.1.4",
+    "chosen": "~1.4.2"
   }
 }
