@@ -83,6 +83,8 @@ $(document).ready(function () {
         $('#modal-tags').modal('show');
     });
 
+    $('#select-tags').chosen({width: "100%"});
+
     //prefill on start
     $('#editor-preview-title').html('<h1>' + $('#input-title').val() + '</h1>')
     $('#editor-preview-text').html(md.render(editor.getValue()));
