@@ -32,6 +32,12 @@
                                 Draft
                             </span>
                         {% endif %}
+
+                        {% for tag in post.categories %}
+                            #{{ tag.title }}
+                        {% else %}
+                            No Tags
+                        {% endfor %}
                     </td>
                     <td style="font-size: 16px;">
                         <span class="label label-success">
