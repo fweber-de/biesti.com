@@ -1,0 +1,3 @@
+backend_tags_collection:
+    pattern:  /
+    defaults: { _controller: fweberBackendBundle:Category:collection }
