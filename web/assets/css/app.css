@@ -110,6 +110,7 @@ body {
 .fnbtn {
     color: #999;
 }
+
 .fnbtn:hover {
     color: #009999;
     text-decoration: none;
@@ -155,9 +156,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .profile-img {
-        text-align: center; 
+        text-align: center;
     }
-    
+
     .face-img {
         width: 100%;
     }
@@ -189,15 +190,15 @@ h1, h2, h3, h4, h5, h6 {
         padding-bottom: 2px;
         background-color: #dddddd;
     }
-    
+
     .intro {
         padding-top: 50px;
     }
-    
+
     #index-content {
         padding-top: 20px;
     }
-    
+
     .profile-img {
         text-align: center;
     }
@@ -229,12 +230,12 @@ h1, h2, h3, h4, h5, h6 {
         padding-bottom: 19px;
         background-color: #dddddd;
     }
-    
+
     .intro {
         padding-top: 0px;
         font-size: 22px;
     }
-    
+
     #index-content {
         padding-top: 50px;
     }
@@ -266,6 +267,47 @@ ul.navigator a:visited {
     font-weight: 800;
     font-family: pt-sans-narrow, sans-serif;
     text-decoration: none;
+}
+
+/** HEADS UP **/
+.heads-up {
+    background-color: #EEEEEE;
+    border-left: 5px solid #AAAAAA;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 13px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+}
+
+.heads-up-reverse {
+    background-color: #EEEEEE;
+    border-right: 5px solid #AAAAAA;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 13px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+}
+
+.heads-up-success {
+    background-color: #f4f8fa;
+    border-color: #5cb85c;
+}
+
+.heads-up-warning {
+    background-color: #fcf8f2;
+    border-color: #f0ad4e;
+}
+
+.heads-up-danger {
+    background-color: #fdf7f7;
+    border-color: #d9534f;
+}
+
+.heads-up-info {
+    background-color: #f4f8fa;
+    border-color: #5bc0de;
 }
 
 /*

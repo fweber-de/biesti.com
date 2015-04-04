@@ -16,3 +16,7 @@ backend_posts:
 backend_tags:
     resource:   "@fweberBackendBundle/Resources/config/Category/routing.yml"
     prefix:     /tags
+
+backend_users:
+    resource:   "@fweberBackendBundle/Resources/config/User/routing.yml"
+    prefix:     /users

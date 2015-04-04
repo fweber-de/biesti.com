@@ -4,6 +4,7 @@ namespace fweber\DataBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use fweber\UserBundle\Entity\User;
 
 /**
  * Post.
@@ -69,6 +70,12 @@ class Post
      * @ORM\JoinTable(name="posts_categories")
      */
     private $categories;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="fweber\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
     public function __construct()
     {
@@ -268,5 +275,21 @@ class Post
         $this->categories = $categories;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
     }
 }
