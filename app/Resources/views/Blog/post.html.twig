@@ -8,7 +8,7 @@
     <script src="{{ asset('assets/js/post.js') }}"></script>
 
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-md-8">
             <div class="post">
                 <h1>{{ post.title }}</h1>
 
@@ -17,7 +17,7 @@
                 <hr>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4">
 
             <div class="heads-up-reverse heads-up-warning" style="font-size: 26px; text-align: right;">
                 <a href="{{ path('blog_posts') }}">
@@ -53,7 +53,7 @@
                      alt="...">
 
                 <h4>{{ post.user.firstName }} {{ post.user.lastName }}</h4>
-                {{ post.user.about|markdown }}
+                {{ post.user.about|markdown|raw }}
 
             </div>
         </div>
