@@ -2,6 +2,16 @@
 
 {% block currentPage %}blog{% endblock %}
 
+{% block ogpTitle %}
+    {{ post.title }}
+    |
+    {% for tag in post.categories %}
+        #{{ tag.title }}
+    {% endfor %}
+    |
+    Flos Blog
+{% endblock %}
+
 {% block app %}
 
     <link rel="stylesheet" href="{{ asset('assets/css/post.css') }}">
