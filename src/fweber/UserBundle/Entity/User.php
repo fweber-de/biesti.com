@@ -56,11 +56,15 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $about
+     * @param $about
+     *
+     * @return $this
      */
     public function setAbout($about)
     {
         $this->about = $about;
+
+        return $this;
     }
 
     /**
@@ -72,11 +76,15 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $firstName
+     * @param $firstName
+     *
+     * @return $this
      */
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
+
+        return $this;
     }
 
     /**
@@ -88,10 +96,14 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $lastName
+     * @param $lastName
+     *
+     * @return $this
      */
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
+
+        return $this;
     }
 }

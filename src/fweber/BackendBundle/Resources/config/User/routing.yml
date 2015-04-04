@@ -1,3 +1,7 @@
 backend_users_collection:
     pattern:  /
     defaults: { _controller: fweberBackendBundle:User:collection }
+
+backend_users_update:
+    pattern:  /{userId}/edit
+    defaults: { _controller: fweberBackendBundle:User:update }

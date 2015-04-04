@@ -9,3 +9,8 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+    app.app_extension:
+            class: fweber\Twig\AppExtension
+            public: false
+            tags:
+                - { name: twig.extension }

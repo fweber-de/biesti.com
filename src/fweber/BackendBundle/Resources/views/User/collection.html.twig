@@ -20,7 +20,7 @@
                 <th>Last Login</th>
                 <th>Actions</th>
             </tr>
-            
+
             {% for user in users %}
                 <tr>
                     <td>
@@ -39,14 +39,14 @@
                         {{ user.lastLogin|date('d.m.Y H:i:s') }}
                     </td>
                     <td>
-                        {#<div class="pull-right">
-                            <a class="btn btn-warning" href="{{ path('backend_posts_update', {postId: post.id}) }}">
+                        <div class="pull-right">
+                            <a class="btn btn-warning" href="{{ path('backend_users_update', {userId: user.id}) }}">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="btn btn-danger" href="{{ path('backend_posts_delete', {postId: post.id}) }}">
+                            {#<a class="btn btn-danger" href="{{ path('backend_posts_delete', {postId: post.id}) }}">
                                 <i class="fa fa-trash"></i>
-                            </a>
-                        </div>#}
+                            </a>#}
+                        </div>
                     </td>
                 </tr>
             {% endfor %}
