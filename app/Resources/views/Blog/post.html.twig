@@ -2,6 +2,16 @@
 
 {% block currentPage %}blog{% endblock %}
 
+{% block title %}
+    {{ post.title }}
+    |
+    {% for tag in post.categories %}
+        #{{ tag.title }}
+    {% endfor %}
+    |
+    Flos Blog
+{% endblock %}
+
 {% block ogpTitle %}
     {{ post.title }}
     |
