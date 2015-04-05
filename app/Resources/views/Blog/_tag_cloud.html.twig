@@ -3,11 +3,13 @@
 <script>
     var word_array = [
         {% for i, tag in tags %}
+        {% if tag.posts|length > 0 %}
         {
             text: "{{ tag.title }}",
             weight: {{ tag.posts|length }},
             link: "{{ path('blog_tag', {slug: tag.slug}) }}"
         }{% if i != tags|length - 1 %}, {% endif %}
+        {% endif %}
         {% endfor %}
     ];
 
