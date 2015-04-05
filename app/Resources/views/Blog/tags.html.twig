@@ -5,7 +5,7 @@
 {% block app %}
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-6 col-sm-6">
 
             <h1>Tags</h1>
 
@@ -28,7 +28,7 @@
             {% endfor %}
 
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
 
             {{ render(controller('fweberBlogBundle:Blog:tagCloud')) }}
 
