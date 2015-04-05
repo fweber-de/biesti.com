@@ -1,7 +1,15 @@
 blog_posts:
-    path: /
+    pattern: /
     defaults: { _controller: fweberBlogBundle:Blog:posts }
 
 blog_post:
-    path: /p/{slug}
+    pattern: /p/{slug}
     defaults: { _controller: fweberBlogBundle:Blog:post }
+
+blog_tags:
+    pattern: /tags
+    defaults: { _controller: fweberBlogBundle:Blog:tags }
+
+blog_tag:
+    pattern: /tags/{slug}
+    defaults: { _controller: fweberBlogBundle:Blog:tag }
