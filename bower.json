@@ -19,6 +19,7 @@
     "sweetalert": "~0.5.0",
     "remarkable": "~1.6.0",
     "anchorify": "~1.1.4",
-    "chosen": "~1.4.2"
+    "chosen": "~1.4.2",
+    "jQCloud": "https://github.com/lucaong/jQCloud.git#~1.0.3"
   }
 }

@@ -1,0 +1,17 @@
+<div id="tag-cloud" style="width: 550px; height: 350px;"></div>
+
+<script>
+    var word_array = [
+        {% for i, tag in tags %}
+        {
+            text: "{{ tag.title }}",
+            weight: {{ tag.posts|length }},
+            link: "{{ path('blog_tag', {slug: tag.slug}) }}"
+        }{% if i != tags|length - 1 %}, {% endif %}
+        {% endfor %}
+    ];
+
+    $(function () {
+        $("#tag-cloud").jQCloud(word_array);
+    });
+</script>

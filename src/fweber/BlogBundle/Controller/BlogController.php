@@ -32,4 +32,40 @@ class BlogController extends Controller
             )
         );
     }
+
+    public function tagsAction()
+    {
+        $tags = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findAll();
+
+        return $this->render(
+            ':Blog:tags.html.twig',
+            array(
+                'tags' => $tags,
+            )
+        );
+    }
+
+    public function tagAction($slug)
+    {
+        $tag = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findOneBySlug($slug);
+
+        return $this->render(
+            ':Blog:tag.html.twig',
+            array(
+                'tag' => $tag,
+            )
+        );
+    }
+
+    public function tagCloudAction()
+    {
+        $tags = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findAll();
+
+        return $this->render(
+            ':Blog:_tag_cloud.html.twig',
+            array(
+                'tags' => $tags,
+            )
+        );
+    }
 }

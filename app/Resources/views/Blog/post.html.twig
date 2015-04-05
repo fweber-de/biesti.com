@@ -59,7 +59,7 @@
                     <br>
                     <div class="post-tags">
                         {% for tag in post.categories %}
-                            #{{ tag.title }}
+                            <a href="{{ path('blog_tag', {slug: tag.slug}) }}">#{{ tag.title }}</a>
                         {% endfor %}
                     </div>
                 {% endif %}
