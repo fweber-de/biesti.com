@@ -22,6 +22,14 @@
     Flos Blog
 {% endblock %}
 
+{% block ogpImage %}
+    {% if post.mainImageUrl|length > 0 %}
+        {{ post.mainImageUrl }}
+    {% else %}
+        {{ asset('assets/img/pi-1.jpg', absolute=true) }}
+    {% endif %}
+{% endblock %}
+
 {% block app %}
 
     <link rel="stylesheet" href="{{ asset('assets/css/post.css') }}">
