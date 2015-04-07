@@ -44,7 +44,8 @@ class PostController extends Controller
                 ->setIsDraft(false)
                 ->setOpenDate(new \DateTime('now'))
                 ->setPublishDate(new \DateTime('now'))
-                ->setUser($this->getUser());
+                ->setUser($this->getUser())
+                ->setMainImageUrl($request->get('main'));
 
             //handle tags
             $_tags = json_decode($request->get('tags'));
@@ -129,7 +130,8 @@ class PostController extends Controller
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
-                ->setIsDraft(false);
+                ->setIsDraft(false)
+                ->setMainImageUrl($request->get('main'));
 
             //handle tags
             $_tags = json_decode($request->get('tags'));

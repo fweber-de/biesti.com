@@ -30,6 +30,7 @@ $(document).ready(function () {
         var title = $('#input-title').val();
         var text = editor.getValue();
         var tags = JSON.stringify($('#select-tags').val());
+        var mainImageUrl = $('#input-main-url').val();
 
         if (title === '' || text === '') {
             swal('Attention!', 'Title and Text must not be empty!', 'warning');
@@ -44,7 +45,8 @@ $(document).ready(function () {
                 ajax: 1,
                 title: title,
                 text: text,
-                tags: tags
+                tags: tags,
+                main: mainImageUrl
             }, function (data) {
                 if (data.status === 'error') {
                     swal('Error!', data.message, 'error');
@@ -64,15 +66,6 @@ $(document).ready(function () {
             });
         }
     });
-
-    //save tags
-    /*$('#btn-save-tags').click(function(e) {
-        e.preventDefault();
-
-        var selectedTags = $('#select-tags').val();
-
-        console.log(selectedTags);
-    });*/
 
     //markdown
     var md = new Remarkable('commonmark');
@@ -95,6 +88,11 @@ $(document).ready(function () {
     });
 
     $('#select-tags').chosen({width: "100%"});
+
+    //main url modal
+    $('#btn-main-url').click(function() {
+        $('#modal-main-url').modal('show');
+    });
 
     //prefill on start
     $('#editor-preview-title').html('<h1>' + $('#input-title').val() + '</h1>')

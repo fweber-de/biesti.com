@@ -80,7 +80,7 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="main_img_url", type="string", length=255)
+     * @ORM\Column(name="main_img_url", type="string", length=255, nullable=true)
      */
     private $mainImageUrl;
 
