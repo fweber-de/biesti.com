@@ -77,6 +77,12 @@ class Post
      */
     private $user;
 
+    /**
+     * @var string
+     *
+     */
+    private $mainImageUrl;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -291,5 +297,25 @@ class Post
     public function setUser(User $user)
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMainImageUrl()
+    {
+        return $this->mainImageUrl;
+    }
+
+    /**
+     * @param mixed $mainImageUrl
+     */
+    public function setMainImageUrl($mainImageUrl)
+    {
+        $this->mainImageUrl = $mainImageUrl;
+
+        return $this;
     }
 }
