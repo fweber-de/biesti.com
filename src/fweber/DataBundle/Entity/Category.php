@@ -46,6 +46,11 @@ class Category
         $this->posts = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return '#' . $this->title;
+    }
+
     /**
      * Get id.
      *
