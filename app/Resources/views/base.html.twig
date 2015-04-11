@@ -18,29 +18,25 @@
     <!--------->
 
     <!-- JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="{{ asset('assets/js/app.js') }}"></script>
-
-    <!-- BOWER -->
     {% javascripts
+    '@fweberAssetsBundle/Resources/public/vendor/jquery/dist/jquery.min.js'
+    '@fweberAssetsBundle/Resources/public/vendor/bootstrap/dist/js/bootstrap.min.js'
     '@fweberAssetsBundle/Resources/public/vendor/sweetalert/lib/sweet-alert.min.js'
     '@fweberAssetsBundle/Resources/public/vendor/anchorify/dist/anchorify.min.js'
-    '@fweberAssetsBundle/Resources/public/vendor/jQCloud/jqcloud/jqcloud-1.0.3.min.js' %}
+    '@fweberAssetsBundle/Resources/public/vendor/jQCloud/jqcloud/jqcloud-1.0.3.min.js'
+    '@fweberAssetsBundle/Resources/public/js/app.js'
+    '@fweberAssetsBundle/Resources/public/js/post.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/docs.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/app.css') }}"/>
-
-    <!-- BOWER -->
     {% stylesheets
+    '@fweberAssetsBundle/Resources/public/vendor/bootstrap/dist/css/bootstrap.min.css'
+    '@fweberAssetsBundle/Resources/public/vendor/font-awesome/css/font-awesome.min.css'
+    '@fweberAssetsBundle/Resources/public/css/docs.min.css'
     '@fweberAssetsBundle/Resources/public/vendor/sweetalert/lib/sweet-alert.css'
-    '@fweberAssetsBundle/Resources/public/vendor/jQCloud/jqcloud/jqcloud.css' %}
+    '@fweberAssetsBundle/Resources/public/vendor/jQCloud/jqcloud/jqcloud.css'
+    '@fweberAssetsBundle/Resources/public/css/app.css' %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
 
@@ -54,13 +50,14 @@
 
 <!-- FB SDK -->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1651031938459416";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1651031938459416";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 <div id="wrap">
     {% block body %}
