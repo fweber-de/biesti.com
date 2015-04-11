@@ -83,12 +83,24 @@ $(document).ready(function () {
     });
 
     //tags modal
-    $('#btn-tags').click(function() {
+    $('#btn-tags').click(function () {
         $('#modal-tags').modal('show');
     });
 
+    $('#select-tags').selectize({
+        plugins: ['remove_button', 'optgroup_columns'],
+        delimiter: ',',
+        persist: false,
+        create: function (input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
+
     //main url modal
-    $('#btn-main-url').click(function() {
+    $('#btn-main-url').click(function () {
         $('#modal-main-url').modal('show');
     });
 

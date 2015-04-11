@@ -54,7 +54,48 @@ class PostController extends Controller
                 $tagCollection = new ArrayCollection();
 
                 foreach ($_tags as $_tag) {
-                    $tag = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findOneById($_tag);
+                    $tag = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findOneByTitle($_tag);
+
+                    //if tag is unknown create new
+                    if (!$tag) {
+                        $tag = new Category();
+                        $tag->setTitle($_tag)
+                            ->setSlug(SlugGenerator::generate($_tag));
+
+                        //validation
+                        $validator = $this->get('validator');
+                        $errors = $validator->validate($tag);
+
+                        //error handling
+                        if (count($errors) > 0) {
+                            if ($request->get('ajax', 0) == 1) {
+                                $message = new ApiMessage();
+                                $message->message = (string) $errors;
+                                $message->status = ApiMessage::STATUS_ERROR;
+
+                                $response = new Response(json_encode($message));
+                                $response->setStatusCode(400);
+
+                                return $response;
+                            } else {
+                                foreach ($errors as $error) {
+                                    $this->addFlash('error', $error);
+                                }
+
+                                return $this->render(
+                                    'fweberBackendBundle:Post:create.html.twig',
+                                    array(
+                                        'tags' => $tags,
+                                    )
+                                );
+                            }
+                        }
+
+                        $em = $this->getDoctrine()->getEntityManager();
+                        $em->persist($tag);
+                        $em->flush();
+                    }
+
                     $tagCollection->add($tag);
                 }
 
@@ -140,7 +181,48 @@ class PostController extends Controller
                 $tagCollection = new ArrayCollection();
 
                 foreach ($_tags as $_tag) {
-                    $tag = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findOneById($_tag);
+                    $tag = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findOneByTitle($_tag);
+
+                    //if tag is unknown create new
+                    if (!$tag) {
+                        $tag = new Category();
+                        $tag->setTitle($_tag)
+                            ->setSlug(SlugGenerator::generate($_tag));
+
+                        //validation
+                        $validator = $this->get('validator');
+                        $errors = $validator->validate($tag);
+
+                        //error handling
+                        if (count($errors) > 0) {
+                            if ($request->get('ajax', 0) == 1) {
+                                $message = new ApiMessage();
+                                $message->message = (string) $errors;
+                                $message->status = ApiMessage::STATUS_ERROR;
+
+                                $response = new Response(json_encode($message));
+                                $response->setStatusCode(400);
+
+                                return $response;
+                            } else {
+                                foreach ($errors as $error) {
+                                    $this->addFlash('error', $error);
+                                }
+
+                                return $this->render(
+                                    'fweberBackendBundle:Post:create.html.twig',
+                                    array(
+                                        'tags' => $tags,
+                                    )
+                                );
+                            }
+                        }
+
+                        $em = $this->getDoctrine()->getEntityManager();
+                        $em->persist($tag);
+                        $em->flush();
+                    }
+
                     $tagCollection->add($tag);
                 }
 
