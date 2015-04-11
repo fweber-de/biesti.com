@@ -87,8 +87,6 @@ $(document).ready(function () {
         $('#modal-tags').modal('show');
     });
 
-    $('#select-tags').chosen({width: "100%"});
-
     //main url modal
     $('#btn-main-url').click(function() {
         $('#modal-main-url').modal('show');
