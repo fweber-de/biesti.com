@@ -15,7 +15,8 @@
     <!-- BOWER -->
     {% stylesheets
     '@fweberAssetsBundle/Resources/public/vendor/sweetalert/lib/sweet-alert.css'
-    '@fweberAssetsBundle/Resources/public/vendor/chosen/chosen.min.css' %}
+    '@fweberAssetsBundle/Resources/public/vendor/selectize/dist/css/selectize.css'
+    '@fweberAssetsBundle/Resources/public/vendor/selectize/dist/css/selectize.bootstrap3.css' %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
 
@@ -30,7 +31,9 @@
     '@fweberAssetsBundle/Resources/public/ace/src/mode-markdown.js'
     '@fweberAssetsBundle/Resources/public/ace/src/theme-github.js'
     '@fweberAssetsBundle/Resources/public/vendor/remarkable/dist/remarkable.min.js'
-    '@fweberAssetsBundle/Resources/public/vendor/chosen/chosen.jquery.min.js'
+    '@fweberAssetsBundle/Resources/public/vendor/microplugin/src/microplugin.js'
+    '@fweberAssetsBundle/Resources/public/vendor/sifter/sifter.min.js'
+    '@fweberAssetsBundle/Resources/public/vendor/selectize/dist/js/selectize.min.js'
     '@fweberAssetsBundle/Resources/public/js/backend.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
@@ -42,13 +45,14 @@
 
 <!-- FB SDK -->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1651031938459416";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1651031938459416";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 <span class="hidden" id="current-page">{% block currentPage %}{% endblock %}</span>
 
