@@ -41,11 +41,17 @@ class PostController extends Controller
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
-                ->setIsDraft(false)
                 ->setOpenDate(new \DateTime('now'))
                 ->setPublishDate(new \DateTime('now'))
                 ->setUser($this->getUser())
                 ->setMainImageUrl($request->get('main'));
+
+            //draft
+            if ((bool)$request->get('publish', false) == true) {
+                $post->setIsDraft(false);
+            } else {
+                $post->setIsDraft(true);
+            }
 
             //handle tags
             $_tags = json_decode($request->get('tags'));
@@ -70,7 +76,7 @@ class PostController extends Controller
                         if (count($errors) > 0) {
                             if ($request->get('ajax', 0) == 1) {
                                 $message = new ApiMessage();
-                                $message->message = (string) $errors;
+                                $message->message = (string)$errors;
                                 $message->status = ApiMessage::STATUS_ERROR;
 
                                 $response = new Response(json_encode($message));
@@ -110,7 +116,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string) $errors;
+                    $message->message = (string)$errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -171,8 +177,12 @@ class PostController extends Controller
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
-                ->setIsDraft(false)
                 ->setMainImageUrl($request->get('main'));
+
+            //draft
+            if ((bool)$request->get('publish', false) == true) {
+                $post->setIsDraft(false);
+            }
 
             //handle tags
             $_tags = json_decode($request->get('tags'));
@@ -197,7 +207,7 @@ class PostController extends Controller
                         if (count($errors) > 0) {
                             if ($request->get('ajax', 0) == 1) {
                                 $message = new ApiMessage();
-                                $message->message = (string) $errors;
+                                $message->message = (string)$errors;
                                 $message->status = ApiMessage::STATUS_ERROR;
 
                                 $response = new Response(json_encode($message));
@@ -239,7 +249,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string) $errors;
+                    $message->message = (string)$errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -307,6 +317,19 @@ class PostController extends Controller
             'fweberBackendBundle:Post:delete.html.twig',
             array(
                 'post' => $post,
+            )
+        );
+    }
+
+    public function previewAction($postId)
+    {
+        $post = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findOneById($postId);
+
+        return $this->render(
+            ':Blog:post.html.twig',
+            array(
+                'post' => $post,
+                'preview' => true,
             )
         );
     }

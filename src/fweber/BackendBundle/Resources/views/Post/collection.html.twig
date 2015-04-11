@@ -23,23 +23,25 @@
 
                     <td>
                         <h4>
-                            <a href="#">
+                            <a href="{{ path('backend_posts_preview', {postId: post.id}) }}">
                                 {{ post.title }}
                             </a>
                         </h4>
-
-                        {% if post.isDraft %}
-                            <span class="label label-waring">
-                                <i class="fa fa-edit"></i>
-                                Draft
-                            </span>
-                        {% endif %}
 
                         {% for tag in post.categories %}
                             #{{ tag.title }}
                         {% else %}
                             No Tags
                         {% endfor %}
+                    </td>
+
+                    <td>
+                        {% if post.isDraft %}
+                            <span class="label label-warning">
+                                <i class="fa fa-edit"></i>
+                                Draft
+                            </span>
+                        {% endif %}
                     </td>
 
                     <td style="font-size: 16px;">
@@ -56,14 +58,27 @@
 
                     <td>
                         <!-- FB SHARE -->
-                        <div class="fb-share-button" data-href="{{ url('blog_post', {slug: post.slug, utm_source: 'facebook', utm_medium: 'be_share', utm_campaign: 'fb_post'}) }}" data-layout="button"></div>
+                        <div class="fb-share-button"
+                             data-href="{{ url('blog_post', {slug: post.slug, utm_source: 'facebook', utm_medium: 'be_share', utm_campaign: 'fb_post'}) }}"
+                             data-layout="button"></div>
 
                         <br>
 
                         <!-- TWITTER SHARE -->
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-text="{{ post.title }} | {{ post.categories|join(' ') }} | Flos Blog" data-url="{{ url('blog_post', {slug: post.slug, utm_source: 'twitter', utm_medium: 'be_share', utm_campaign: 'tw_post'}) }}" data-dnt="true">Tweet</a>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-count="none"
+                           data-text="{{ post.title }} | {{ post.categories|join(' ') }} | Flos Blog"
+                           data-url="{{ url('blog_post', {slug: post.slug, utm_source: 'twitter', utm_medium: 'be_share', utm_campaign: 'tw_post'}) }}"
+                           data-dnt="true">Tweet</a>
                         <script>
-                            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+                            !function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                if (!d.getElementById(id)) {
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = p + '://platform.twitter.com/widgets.js';
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, 'script', 'twitter-wjs');
                         </script>
                     </td>
 

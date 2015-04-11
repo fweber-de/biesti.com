@@ -26,7 +26,7 @@ $(document).ready(function () {
     positionCells();
 
     //save
-    $('#btn-save').click(function () {
+    var SavePost = function (id, publish) {
         var title = $('#input-title').val();
         var text = editor.getValue();
         var tags = JSON.stringify($('#select-tags').val());
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
             var url = ($(this).data('action') === 'add')
                 ? Routing.generate('backend_posts_create')
-                : Routing.generate('backend_posts_update', {postId: $(this).data('id')});
+                : Routing.generate('backend_posts_update', {postId: id});
 
             $.post(url, {
                 sent: 1,
@@ -46,7 +46,8 @@ $(document).ready(function () {
                 title: title,
                 text: text,
                 tags: tags,
-                main: mainImageUrl
+                main: mainImageUrl,
+                publish: publish
             }, function (data) {
                 if (data.status === 'error') {
                     swal('Error!', data.message, 'error');
@@ -65,6 +66,14 @@ $(document).ready(function () {
                 }
             });
         }
+    };
+
+    $('#btn-save').click(function () {
+        SavePost($(this).data('id'), false);
+    });
+
+    $('#btn-publish').click(function () {
+        SavePost($(this).data('id'), true);
     });
 
     //markdown
@@ -107,5 +116,9 @@ $(document).ready(function () {
     //prefill on start
     $('#editor-preview-title').html('<h1>' + $('#input-title').val() + '</h1>')
     $('#editor-preview-text').html(md.render(editor.getValue()));
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
 });

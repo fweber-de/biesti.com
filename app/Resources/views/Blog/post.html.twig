@@ -35,6 +35,16 @@
     <link rel="stylesheet" href="{{ asset('assets/css/post.css') }}">
     <script src="{{ asset('assets/js/post.js') }}"></script>
 
+    {% if preview is defined %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heads-up heads-up-danger">
+                    <h2>Preview</h2>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="row">
         <div class="col-lg-8 col-md-8">
             <div class="post">
@@ -87,7 +97,7 @@
         </div>
     </div>
 
-    {% if app.environment == 'prod' %}
+    {% if app.environment == 'prod' and preview is not defined %}
         <div id="disqus_thread"></div>
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES * * */
