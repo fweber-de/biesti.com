@@ -10,6 +10,10 @@
     color: #f0ad4e;
 }
 
+.editor-font-color-publish {
+    color: #CC0066;
+}
+
 .editor-top-bar {
     border-bottom: 1px solid #dddddd;
 }

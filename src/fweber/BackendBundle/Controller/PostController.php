@@ -41,11 +41,17 @@ class PostController extends Controller
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
-                ->setIsDraft(false)
                 ->setOpenDate(new \DateTime('now'))
                 ->setPublishDate(new \DateTime('now'))
                 ->setUser($this->getUser())
                 ->setMainImageUrl($request->get('main'));
+
+            //draft
+            if((bool) $request->get('publish', false) == true) {
+                $post->setIsDraft(false);
+            } else {
+                $post->setIsDraft(true);
+            }
 
             //handle tags
             $_tags = json_decode($request->get('tags'));
@@ -171,8 +177,12 @@ class PostController extends Controller
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
-                ->setIsDraft(false)
                 ->setMainImageUrl($request->get('main'));
+
+            //draft
+            if((bool) $request->get('publish', false) == true) {
+                $post->setIsDraft(false);
+            }
 
             //handle tags
             $_tags = json_decode($request->get('tags'));
