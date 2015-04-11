@@ -2,6 +2,7 @@ git stash
 git pull
 php app/console doctrine:schema:update --force
 php app/console cache:clear --env=prod --no-debug
+bower prune --allow-root
 bower install --allow-root
 php app/console assetic:dump --env=prod --no-debug
 composer.phar install
