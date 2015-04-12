@@ -84,12 +84,41 @@
 
                     <td>
                         <div class="pull-right">
-                            <a class="btn btn-warning" href="{{ path('backend_posts_update', {postId: post.id}) }}">
+
+                            {% if post.isDraft %}
+                                <a class="btn btn-publish"
+                                   data-toggle="tooltip"
+                                   data-placement="bottom"
+                                   title="Publish"
+                                   href="{{ path('backend_posts_publish', {postId: post.id}) }}">
+                                    <i class="fa fa-bullhorn"></i>
+                                </a>
+                            {% else %}
+                                <a class="btn btn-warning"
+                                   data-toggle="tooltip"
+                                   data-placement="bottom"
+                                   title="Set Draft"
+                                   href="{{ path('backend_posts_draft', {postId: post.id}) }}">
+                                    <i class="fa fa-lock"></i>
+                                </a>
+                            {% endif %}
+
+                            <a class="btn btn-warning"
+                               data-toggle="tooltip"
+                               data-placement="bottom"
+                               title="Edit"
+                               href="{{ path('backend_posts_update', {postId: post.id}) }}">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="btn btn-danger" href="{{ path('backend_posts_delete', {postId: post.id}) }}">
+
+                            <a class="btn btn-danger"
+                               data-toggle="tooltip"
+                               data-placement="bottom"
+                               title="Delete"
+                               href="{{ path('backend_posts_delete', {postId: post.id}) }}">
                                 <i class="fa fa-trash"></i>
                             </a>
+
                         </div>
                     </td>
                 </tr>

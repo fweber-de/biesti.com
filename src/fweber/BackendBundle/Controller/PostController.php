@@ -333,4 +333,51 @@ class PostController extends Controller
             )
         );
     }
+
+    public function publishAction(Request $request, $postId)
+    {
+        $post = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findOneById($postId);
+
+        $post->setIsDraft(false)
+            ->setPublishDate(new \DateTime('now'));
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->flush();
+
+        if ($request->get('ajax', 0) == 1) {
+            $message = new ApiMessage();
+            $message->message = 'Post published!';
+            $message->status = ApiMessage::STATUS_SUCCESS;
+
+            $response = new Response(json_encode($message));
+            $response->setStatusCode(200);
+
+            return $response;
+        } else {
+            return $this->redirectToRoute('backend_posts_collection');
+        }
+    }
+
+    public function draftAction(Request $request, $postId)
+    {
+        $post = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findOneById($postId);
+
+        $post->setIsDraft(true);
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->flush();
+
+        if ($request->get('ajax', 0) == 1) {
+            $message = new ApiMessage();
+            $message->message = 'Post set to Draft!';
+            $message->status = ApiMessage::STATUS_SUCCESS;
+
+            $response = new Response(json_encode($message));
+            $response->setStatusCode(200);
+
+            return $response;
+        } else {
+            return $this->redirectToRoute('backend_posts_collection');
+        }
+    }
 }

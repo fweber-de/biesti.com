@@ -1,0 +1,11 @@
+.btn-publish {
+    color: #fff;
+    background-color: #CC0066;
+    border-color: #AF0057;
+}
+
+.btn-publish:hover {
+    color: #fff;
+    background-color: #AF0057;
+    border-color: #AF0057;
+}

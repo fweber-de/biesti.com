@@ -14,6 +14,7 @@
     '@fweberAssetsBundle/Resources/public/vendor/selectize/dist/css/selectize.css'
     '@fweberAssetsBundle/Resources/public/vendor/selectize/dist/css/selectize.default.css'
     '@fweberAssetsBundle/Resources/public/css/docs.min.css'
+    '@fweberAssetsBundle/Resources/public/css/backend.css'
     '@fweberAssetsBundle/Resources/public/css/editor.css' %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
@@ -38,6 +39,11 @@
 
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </head>
 <body>
 

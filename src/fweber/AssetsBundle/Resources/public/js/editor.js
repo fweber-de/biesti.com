@@ -117,8 +117,4 @@ $(document).ready(function () {
     $('#editor-preview-title').html('<h1>' + $('#input-title').val() + '</h1>')
     $('#editor-preview-text').html(md.render(editor.getValue()));
 
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-
 });
