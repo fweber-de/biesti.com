@@ -48,7 +48,7 @@ class PostController extends Controller
             $post->setPublishDate(new \DateTime($request->get('publishDate', 'now')));
 
             //draft
-            if ((bool)$request->get('publish', false) == true) {
+            if ((bool) $request->get('publish', false) == true) {
                 $post->setIsDraft(false);
             } else {
                 $post->setIsDraft(true);
@@ -77,7 +77,7 @@ class PostController extends Controller
                         if (count($errors) > 0) {
                             if ($request->get('ajax', 0) == 1) {
                                 $message = new ApiMessage();
-                                $message->message = (string)$errors;
+                                $message->message = (string) $errors;
                                 $message->status = ApiMessage::STATUS_ERROR;
 
                                 $response = new Response(json_encode($message));
@@ -117,7 +117,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string)$errors;
+                    $message->message = (string) $errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -183,7 +183,7 @@ class PostController extends Controller
             $post->setPublishDate(new \DateTime($request->get('publishDate', 'now')));
 
             //draft
-            if ((bool)$request->get('publish', false) == true) {
+            if ((bool) $request->get('publish', false) == true) {
                 $post->setIsDraft(false);
             }
 
@@ -210,7 +210,7 @@ class PostController extends Controller
                         if (count($errors) > 0) {
                             if ($request->get('ajax', 0) == 1) {
                                 $message = new ApiMessage();
-                                $message->message = (string)$errors;
+                                $message->message = (string) $errors;
                                 $message->status = ApiMessage::STATUS_ERROR;
 
                                 $response = new Response(json_encode($message));
@@ -252,7 +252,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string)$errors;
+                    $message->message = (string) $errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));

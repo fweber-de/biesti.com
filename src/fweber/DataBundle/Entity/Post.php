@@ -10,7 +10,7 @@ use fweber\UserBundle\Entity\User;
  * Post.
  *
  * @ORM\Table("post")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="fweber\DataBundle\Entity\PostRepository")
  */
 class Post
 {
