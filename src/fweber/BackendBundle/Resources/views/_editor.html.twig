@@ -38,6 +38,7 @@
              data-placement="bottom"
              title="Publish"
              id="btn-publish"
+             data-action="{{ method }}"
              {% if post is defined %}data-id="{{ post.id }}"{% endif %}
                 >
             <i class="fa fa-bullhorn"></i>
@@ -105,7 +106,11 @@
 </div>
 
 {#TAGS MODAL#}
-<div class="modal fade" id="modal-tags" tabindex="-1" role="dialog" aria-labelledby="modal-tags-label"
+<div class="modal fade"
+     id="modal-tags"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="modal-tags-label"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -140,14 +145,17 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                {#<button type="button" class="btn btn-primary" id="btn-save-tags">Save</button>#}
             </div>
         </div>
     </div>
 </div>
 
 {#MAIN IMAGE MODAL#}
-<div class="modal fade" id="modal-main-url" tabindex="-1" role="dialog" aria-labelledby="modal-main-url-label"
+<div class="modal fade"
+     id="modal-main-url"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="modal-main-url-label"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -161,7 +169,35 @@
                 <input class="form-control"
                        id="input-main-url"
                        type="text"
-                       {% if post is defined %}value="{{ post.mainImageUrl }}"{% endif %}
+                       {% if post is defined %}value="{{ post.mainImageUrl }}"{% endif %}>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{#PUBLISH DATE MODAL#}
+<div class="modal fade"
+     id="modal-publish-date"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="modal-publish-date-label"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-publish-date-label">Publish Date</h4>
+            </div>
+            <div class="modal-body">
+
+                <input class="form-control"
+                       id="input-publish-date"
+                       {% if post is defined %}value="{{ post.publishDate|date('d.m.Y H:i') }}"{% endif %}>
 
             </div>
             <div class="modal-footer">

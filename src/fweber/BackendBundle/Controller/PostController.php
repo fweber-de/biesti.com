@@ -35,16 +35,17 @@ class PostController extends Controller
     {
         $tags = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findAll();
 
-        //TODO: implement draft, publish date
         if ($request->get('sent', 0) == 1) {
             $post = new Post();
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
                 ->setOpenDate(new \DateTime('now'))
-                ->setPublishDate(new \DateTime('now'))
                 ->setUser($this->getUser())
                 ->setMainImageUrl($request->get('main'));
+
+            //publish date
+            $post->setPublishDate(new \DateTime($request->get('publishDate', 'now')));
 
             //draft
             if ((bool)$request->get('publish', false) == true) {
@@ -172,12 +173,14 @@ class PostController extends Controller
             throw new \InvalidArgumentException('Post not found!');
         }
 
-        //TODO: implement draft, publish date
         if ($request->get('sent', 0) == 1) {
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
                 ->setMainImageUrl($request->get('main'));
+
+            //publish date
+            $post->setPublishDate(new \DateTime($request->get('publishDate', 'now')));
 
             //draft
             if ((bool)$request->get('publish', false) == true) {
