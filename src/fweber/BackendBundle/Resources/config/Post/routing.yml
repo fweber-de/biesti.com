@@ -17,3 +17,11 @@ backend_posts_update:
 backend_posts_delete:
     pattern:  /{postId}/delete
     defaults: { _controller: fweberBackendBundle:Post:delete }
+
+backend_posts_publish:
+    pattern:  /{postId}/publish
+    defaults: { _controller: fweberBackendBundle:Post:publish }
+
+backend_posts_draft:
+    pattern:  /{postId}/draft
+    defaults: { _controller: fweberBackendBundle:Post:draft }

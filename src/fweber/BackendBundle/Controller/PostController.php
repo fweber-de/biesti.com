@@ -35,19 +35,20 @@ class PostController extends Controller
     {
         $tags = $this->getDoctrine()->getRepository('fweberDataBundle:Category')->findAll();
 
-        //TODO: implement draft, publish date
         if ($request->get('sent', 0) == 1) {
             $post = new Post();
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
                 ->setOpenDate(new \DateTime('now'))
-                ->setPublishDate(new \DateTime('now'))
                 ->setUser($this->getUser())
                 ->setMainImageUrl($request->get('main'));
 
+            //publish date
+            $post->setPublishDate(new \DateTime($request->get('publishDate', 'now')));
+
             //draft
-            if ((bool)$request->get('publish', false) == true) {
+            if ((bool) $request->get('publish', false) == true) {
                 $post->setIsDraft(false);
             } else {
                 $post->setIsDraft(true);
@@ -76,7 +77,7 @@ class PostController extends Controller
                         if (count($errors) > 0) {
                             if ($request->get('ajax', 0) == 1) {
                                 $message = new ApiMessage();
-                                $message->message = (string)$errors;
+                                $message->message = (string) $errors;
                                 $message->status = ApiMessage::STATUS_ERROR;
 
                                 $response = new Response(json_encode($message));
@@ -116,7 +117,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string)$errors;
+                    $message->message = (string) $errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -172,15 +173,17 @@ class PostController extends Controller
             throw new \InvalidArgumentException('Post not found!');
         }
 
-        //TODO: implement draft, publish date
         if ($request->get('sent', 0) == 1) {
             $post->setTitle($request->get('title'))
                 ->setSlug(SlugGenerator::generate($request->get('title')))
                 ->setText($request->get('text'))
                 ->setMainImageUrl($request->get('main'));
 
+            //publish date
+            $post->setPublishDate(new \DateTime($request->get('publishDate', 'now')));
+
             //draft
-            if ((bool)$request->get('publish', false) == true) {
+            if ((bool) $request->get('publish', false) == true) {
                 $post->setIsDraft(false);
             }
 
@@ -207,7 +210,7 @@ class PostController extends Controller
                         if (count($errors) > 0) {
                             if ($request->get('ajax', 0) == 1) {
                                 $message = new ApiMessage();
-                                $message->message = (string)$errors;
+                                $message->message = (string) $errors;
                                 $message->status = ApiMessage::STATUS_ERROR;
 
                                 $response = new Response(json_encode($message));
@@ -249,7 +252,7 @@ class PostController extends Controller
             if (count($errors) > 0) {
                 if ($request->get('ajax', 0) == 1) {
                     $message = new ApiMessage();
-                    $message->message = (string)$errors;
+                    $message->message = (string) $errors;
                     $message->status = ApiMessage::STATUS_ERROR;
 
                     $response = new Response(json_encode($message));
@@ -332,5 +335,52 @@ class PostController extends Controller
                 'preview' => true,
             )
         );
+    }
+
+    public function publishAction(Request $request, $postId)
+    {
+        $post = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findOneById($postId);
+
+        $post->setIsDraft(false)
+            ->setPublishDate(new \DateTime('now'));
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->flush();
+
+        if ($request->get('ajax', 0) == 1) {
+            $message = new ApiMessage();
+            $message->message = 'Post published!';
+            $message->status = ApiMessage::STATUS_SUCCESS;
+
+            $response = new Response(json_encode($message));
+            $response->setStatusCode(200);
+
+            return $response;
+        } else {
+            return $this->redirectToRoute('backend_posts_collection');
+        }
+    }
+
+    public function draftAction(Request $request, $postId)
+    {
+        $post = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findOneById($postId);
+
+        $post->setIsDraft(true);
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->flush();
+
+        if ($request->get('ajax', 0) == 1) {
+            $message = new ApiMessage();
+            $message->message = 'Post set to Draft!';
+            $message->status = ApiMessage::STATUS_SUCCESS;
+
+            $response = new Response(json_encode($message));
+            $response->setStatusCode(200);
+
+            return $response;
+        } else {
+            return $this->redirectToRoute('backend_posts_collection');
+        }
     }
 }

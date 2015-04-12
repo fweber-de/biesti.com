@@ -26,17 +26,18 @@ $(document).ready(function () {
     positionCells();
 
     //save
-    var SavePost = function (id, publish) {
+    var SavePost = function (action, id, publish) {
         var title = $('#input-title').val();
         var text = editor.getValue();
         var tags = JSON.stringify($('#select-tags').val());
         var mainImageUrl = $('#input-main-url').val();
+        var publishDate = ($('#input-publish-date').val() !== '') ? $('#input-publish-date').val() : 'now';
 
         if (title === '' || text === '') {
             swal('Attention!', 'Title and Text must not be empty!', 'warning');
         } else {
 
-            var url = ($(this).data('action') === 'add')
+            var url = (action === 'add')
                 ? Routing.generate('backend_posts_create')
                 : Routing.generate('backend_posts_update', {postId: id});
 
@@ -47,7 +48,8 @@ $(document).ready(function () {
                 text: text,
                 tags: tags,
                 main: mainImageUrl,
-                publish: publish
+                publish: publish,
+                publishDate: publishDate
             }, function (data) {
                 if (data.status === 'error') {
                     swal('Error!', data.message, 'error');
@@ -69,11 +71,11 @@ $(document).ready(function () {
     };
 
     $('#btn-save').click(function () {
-        SavePost($(this).data('id'), false);
+        SavePost($(this).data('action'), $(this).data('id'), false);
     });
 
     $('#btn-publish').click(function () {
-        SavePost($(this).data('id'), true);
+        SavePost($(this).data('action'), $(this).data('id'), true);
     });
 
     //markdown
@@ -113,12 +115,17 @@ $(document).ready(function () {
         $('#modal-main-url').modal('show');
     });
 
+    //publish-date
+    $('#input-publish-date').datetimepicker({
+        locale: 'de'
+    });
+
+    $('#btn-publish-date').click(function () {
+        $('#modal-publish-date').modal('show');
+    });
+
     //prefill on start
     $('#editor-preview-title').html('<h1>' + $('#input-title').val() + '</h1>')
     $('#editor-preview-text').html(md.render(editor.getValue()));
-
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
 
 });

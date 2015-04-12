@@ -3,7 +3,7 @@
  * © 2015, FLorian Weber
  */
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     var currentPage = $('#current-page').html();
 

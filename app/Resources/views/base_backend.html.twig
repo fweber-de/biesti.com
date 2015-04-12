@@ -13,7 +13,9 @@
     '@fweberAssetsBundle/Resources/public/vendor/sweetalert/lib/sweet-alert.css'
     '@fweberAssetsBundle/Resources/public/vendor/selectize/dist/css/selectize.css'
     '@fweberAssetsBundle/Resources/public/vendor/selectize/dist/css/selectize.default.css'
+    '@fweberAssetsBundle/Resources/public/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'
     '@fweberAssetsBundle/Resources/public/css/docs.min.css'
+    '@fweberAssetsBundle/Resources/public/css/backend.css'
     '@fweberAssetsBundle/Resources/public/css/editor.css' %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
@@ -30,6 +32,9 @@
     '@fweberAssetsBundle/Resources/public/vendor/microplugin/src/microplugin.js'
     '@fweberAssetsBundle/Resources/public/vendor/sifter/sifter.min.js'
     '@fweberAssetsBundle/Resources/public/vendor/selectize/dist/js/selectize.min.js'
+    '@fweberAssetsBundle/Resources/public/vendor/moment/min/moment.min.js'
+    '@fweberAssetsBundle/Resources/public/vendor/moment/locale/de.js'
+    '@fweberAssetsBundle/Resources/public/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
     '@fweberAssetsBundle/Resources/public/js/editor.js'
     '@fweberAssetsBundle/Resources/public/js/user.js'
     '@fweberAssetsBundle/Resources/public/js/backend.js' %}
@@ -38,6 +43,11 @@
 
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </head>
 <body>
 

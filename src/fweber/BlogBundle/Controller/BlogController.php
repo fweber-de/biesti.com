@@ -8,10 +8,7 @@ class BlogController extends Controller
 {
     public function postsAction()
     {
-        $posts = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findBy(
-            array('isDraft' => false),
-            array('publishDate' => 'desc')
-        );
+        $posts = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findAllPublished();
 
         return $this->render(
             ':Blog:posts.html.twig',
@@ -25,7 +22,7 @@ class BlogController extends Controller
     {
         $post = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findOneBySlug($slug);
 
-        if(!$post || $post->getIsDraft()) {
+        if (!$post || $post->getIsDraft()) {
             return $this->redirectToRoute('blog_posts');
         }
 
