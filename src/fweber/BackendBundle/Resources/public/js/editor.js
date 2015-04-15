@@ -71,11 +71,11 @@ $(document).ready(function () {
     };
 
     $('#btn-save').click(function () {
-        SavePost($(this).data('action'), $(this).data('id'), false);
+        SavePost($(this).data('action'), $(this).data('id'), 0);
     });
 
     $('#btn-publish').click(function () {
-        SavePost($(this).data('action'), $(this).data('id'), true);
+        SavePost($(this).data('action'), $(this).data('id'), 1);
     });
 
     //markdown
