@@ -230,6 +230,37 @@ h1, h2, h3, h4, h5, h6 {
     color: #AAAAAA;
 }
 
+.post-entry {
+    margin-bottom: 30px;
+}
+
+.post-entry-header {
+    background-color: #EEEEEE;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: 4px solid #565656;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.post-has-image {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    color: #ffffff;
+}
+
+.post-has-image a:link, .post-has-image a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.post-has-image a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
 /*
  * PORTFOLIO
  */
