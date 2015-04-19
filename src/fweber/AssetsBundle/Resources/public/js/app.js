@@ -28,4 +28,12 @@ $(document).ready(function() {
         $('#key-area').html(data);
     });
 
+    $('.fw-site-navigation').on('affixed.bs.affix', function() {
+        $('#affix-title').css('display', 'block');
+    });
+
+    $('.fw-site-navigation').on('affixed-top.bs.affix', function() {
+        $('#affix-title').css('display', 'none');
+    });
+
 });
