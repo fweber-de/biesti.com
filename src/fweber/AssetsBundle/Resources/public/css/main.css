@@ -249,6 +249,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 30px;
     text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
     color: #ffffff;
+    background-position: center;
 }
 
 .post-has-image a:link, .post-has-image a:visited {
