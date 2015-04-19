@@ -51,8 +51,13 @@
     </div>
 
     <!-- NAVIGATION -->
-    <div class="fw-site-navigation hidden-xs">
+    <div class="fw-site-navigation hidden-xs" data-spy="affix" data-offset-top="77">
         <div class="container">
+
+            <span class="fw-logo pull-right" style="display: none;" id="affix-title">
+                <a href="{{ path('index') }}">Florian Weber</a>
+                {% block specialTitle %}{% endblock %}
+            </span>
 
             <ul>
                 <li class="nav-link" id="nl-blog">
