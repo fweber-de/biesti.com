@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityRepository;
 
 class PostRepository extends EntityRepository
 {
-    public function findAllPublished()
+    public function findAllPublished($paginator, $page, $limit)
     {
         $em = $this->getEntityManager();
         $qb = $em->createQueryBuilder();
@@ -21,6 +21,10 @@ class PostRepository extends EntityRepository
                 )
             );
 
-        return $qb->getQuery()->getResult();
+        $posts = $paginator->paginate(
+            $qb, $page, $limit
+        );
+
+        return $posts;
     }
 }

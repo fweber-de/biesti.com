@@ -11,6 +11,10 @@
 
             {{ include(':Blog:_posts_collection.html.twig', { 'posts': posts }) }}
 
+            <div class="navigation">
+                {{ knp_pagination_render(posts) }}
+            </div>
+
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
 
