@@ -3,12 +3,17 @@
 namespace fweber\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class BlogController extends Controller
 {
-    public function postsAction()
+    public function postsAction(Request $request)
     {
-        $posts = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findAllPublished();
+        $posts = $this->getDoctrine()->getRepository('fweberDataBundle:Post')->findAllPublished(
+            $this->get('knp_paginator'),
+            $request->query->get('page', 1),
+            $request->query->get('limit', 10)
+        );
 
         return $this->render(
             ':Blog:posts.html.twig',
