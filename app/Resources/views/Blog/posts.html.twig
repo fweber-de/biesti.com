@@ -9,34 +9,7 @@
 
             <h1>Blog Posts</h1>
 
-            {% for post in posts %}
-                <div class="media">
-                    <div class="media-body">
-                        <h2 class="media-heading">
-                            <a href="{{ path('blog_post', {slug: post.slug}) }}">{{ post.title }}</a>
-                        </h2>
-
-                        {% if post.categories|length() > 0 %}
-                            <div class="posts-tags">
-                                {% for tag in post.categories %}
-                                    <a href="{{ path('blog_tag', {slug: tag.slug}) }}">#{{ tag.title }}</a>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-
-                        <h4>
-                            Posted on
-                            <span style="font-style: oblique;">{{ post.publishDate|date('d.m.Y') }}</span>
-                            at
-                            <span style="font-style: oblique;">{{ post.publishDate|date('H:i') }}</span>
-                        </h4>
-                    </div>
-                </div>
-            {% else %}
-                <div class="alert alert-warning">
-                    No Posts yet!
-                </div>
-            {% endfor %}
+            {{ include(':Blog:_posts_collection.html.twig', { 'posts': posts }) }}
 
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
