@@ -100,13 +100,11 @@ class PostController extends Controller
 
                         $em = $this->getDoctrine()->getEntityManager();
                         $em->persist($tag);
+                        $em->flush();
                     }
 
                     $tagCollection->add($tag);
                 }
-
-                //flush after loop
-                $em->flush();
 
                 $post->setCategories($tagCollection);
             }
@@ -235,13 +233,11 @@ class PostController extends Controller
 
                         $em = $this->getDoctrine()->getEntityManager();
                         $em->persist($tag);
+                        $em->flush();
                     }
 
                     $tagCollection->add($tag);
                 }
-
-                //flush after loop
-                $em->flush();
 
                 $post->setCategories($tagCollection);
             } else {
