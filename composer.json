@@ -1,6 +1,7 @@
 {
     "name": "fweber/sym",
     "license": "proprietary",
+    "description": "fweber.info",
     "type": "project",
     "autoload": {
         "psr-0": {
