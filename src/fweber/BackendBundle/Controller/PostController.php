@@ -48,7 +48,7 @@ class PostController extends Controller
             $post->setPublishDate(new \DateTime($request->get('publishDate', 'now')));
 
             //draft
-            if ((bool) $request->get('publish', false) == true) {
+            if ((bool) $request->get('publish', false) === true) {
                 $post->setIsDraft(false);
             } else {
                 $post->setIsDraft(true);
@@ -185,7 +185,7 @@ class PostController extends Controller
             $post->setPublishDate(new \DateTime($request->get('publishDate', 'now')));
 
             //draft
-            if ((bool) $request->get('publish', false) == true) {
+            if ((bool) $request->get('publish', false) === true) {
                 $post->setIsDraft(false);
             }
 
