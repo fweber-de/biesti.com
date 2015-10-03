@@ -6,6 +6,10 @@ portfolio:
     path: /portfolio
     defaults: { _controller: fweberWebsiteBundle:Page:portfolio }
 
+music:
+    path: /music
+    defaults: { _controller: fweberWebsiteBundle:Page:music }
+
 imprint:
     path: /imprint
     defaults: { _controller: fweberWebsiteBundle:Page:imprint }

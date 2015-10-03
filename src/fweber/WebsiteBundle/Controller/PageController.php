@@ -16,6 +16,11 @@ class PageController extends Controller
         return $this->render(':Page:portfolio.html.twig');
     }
 
+    public function musicAction()
+    {
+        return $this->render(':Page:music.html.twig');
+    }
+
     public function imprintAction()
     {
         return $this->render(':Page:imprint.html.twig');
