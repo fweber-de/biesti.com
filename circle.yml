@@ -4,5 +4,4 @@ dependencies:
     - sudo chmod a+x php-cs-fixer.phar
 
 test:
-  fixer:
-    - php php-cs-fixer.phar fix src
+  - php php-cs-fixer.phar fix src
