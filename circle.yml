@@ -5,4 +5,4 @@ dependencies:
 
 test:
   post:
-    - php php-cs-fixer.phar fix src
+    - php php-cs-fixer.phar fix src --dry-run
