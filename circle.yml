@@ -1,8 +1,0 @@
-dependencies:
-  pre:
-    - wget http://get.sensiolabs.org/php-cs-fixer.phar -O php-cs-fixer.phar
-    - sudo chmod a+x php-cs-fixer.phar
-
-test:
-  post:
-    - php php-cs-fixer.phar fix src --dry-run
